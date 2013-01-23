@@ -42,5 +42,6 @@ public class GooglePageTest {
 	@After
 	public void finaliza() {
 		driver.close();	
+		driver.quit();
 	}
 }
