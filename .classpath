@@ -28,8 +28,8 @@
   <classpathentry kind="var" path="M2_REPO/net/sourceforge/htmlunit/htmlunit/2.9/htmlunit-2.9.jar" sourcepath="M2_REPO/net/sourceforge/htmlunit/htmlunit/2.9/htmlunit-2.9-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/xalan/xalan/2.7.1/xalan-2.7.1.jar" sourcepath="M2_REPO/xalan/xalan/2.7.1/xalan-2.7.1-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/xalan/serializer/2.7.1/serializer-2.7.1.jar"/>
-  <classpathentry kind="var" path="M2_REPO/xml-apis/xml-apis/1.3.04/xml-apis-1.3.04.jar" sourcepath="M2_REPO/xml-apis/xml-apis/1.3.04/xml-apis-1.3.04-sources.jar"/>
-  <classpathentry kind="var" path="M2_REPO/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.jar" sourcepath="M2_REPO/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/xml-apis/xml-apis/1.0.b2/xml-apis-1.0.b2.jar"/>
+  <classpathentry kind="var" path="M2_REPO/commons-collections/commons-collections/3.2/commons-collections-3.2.jar"/>
   <classpathentry kind="var" path="M2_REPO/commons-lang/commons-lang/2.6/commons-lang-2.6.jar" sourcepath="M2_REPO/commons-lang/commons-lang/2.6/commons-lang-2.6-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/apache/httpcomponents/httpmime/4.1.2/httpmime-4.1.2.jar" sourcepath="M2_REPO/org/apache/httpcomponents/httpmime/4.1.2/httpmime-4.1.2-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/net/sourceforge/htmlunit/htmlunit-core-js/2.9/htmlunit-core-js-2.9.jar" sourcepath="M2_REPO/net/sourceforge/htmlunit/htmlunit-core-js/2.9/htmlunit-core-js-2.9-sources.jar"/>
@@ -45,7 +45,7 @@
   <classpathentry kind="var" path="M2_REPO/org/webbitserver/webbit/0.4.6/webbit-0.4.6.jar" sourcepath="M2_REPO/org/webbitserver/webbit/0.4.6/webbit-0.4.6-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/jboss/netty/netty/3.2.7.Final/netty-3.2.7.Final.jar" sourcepath="M2_REPO/org/jboss/netty/netty/3.2.7.Final/netty-3.2.7.Final-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/seleniumhq/selenium/selenium-support/2.25.0/selenium-support-2.25.0.jar" sourcepath="M2_REPO/org/seleniumhq/selenium/selenium-support/2.25.0/selenium-support-2.25.0-sources.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/seleniumhq/selenium/selenium-server/2.25.0/selenium-server-2.25.0.jar" sourcepath="M2_REPO/org/seleniumhq/selenium/selenium-server/2.25.0/selenium-server-2.25.0-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/seleniumhq/selenium/selenium-server/2.28.0/selenium-server-2.28.0.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/bouncycastle/bcprov-jdk15on/1.47/bcprov-jdk15on-1.47.jar" sourcepath="M2_REPO/org/bouncycastle/bcprov-jdk15on/1.47/bcprov-jdk15on-1.47-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/bouncycastle/bcpkix-jdk15on/1.47/bcpkix-jdk15on-1.47.jar" sourcepath="M2_REPO/org/bouncycastle/bcpkix-jdk15on/1.47/bcpkix-jdk15on-1.47-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/mx4j/mx4j-tools/3.0.1/mx4j-tools-3.0.1.jar" sourcepath="M2_REPO/mx4j/mx4j-tools/3.0.1/mx4j-tools-3.0.1-sources.jar"/>
@@ -67,4 +67,37 @@
   <classpathentry kind="var" path="M2_REPO/commons-pool/commons-pool/1.6/commons-pool-1.6.jar" sourcepath="M2_REPO/commons-pool/commons-pool/1.6/commons-pool-1.6-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/cglib/cglib/2.2.2/cglib-2.2.2.jar" sourcepath="M2_REPO/cglib/cglib/2.2.2/cglib-2.2.2-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/asm/asm/3.3.1/asm-3.3.1.jar"/>
+  <classpathentry kind="var" path="M2_REPO/ant/ant-junit/1.6.2/ant-junit-1.6.2.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/maven/plugins/maven-surefire-report-plugin/2.5/maven-surefire-report-plugin-2.5.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/maven/maven-project/2.0.6/maven-project-2.0.6.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/maven/maven-settings/2.0.6/maven-settings-2.0.6.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/maven/maven-model/2.0.6/maven-model-2.0.6.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/codehaus/plexus/plexus-utils/1.5.9/plexus-utils-1.5.9.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/codehaus/plexus/plexus-container-default/1.0-alpha-9/plexus-container-default-1.0-alpha-9.jar"/>
+  <classpathentry kind="var" path="M2_REPO/classworlds/classworlds/1.1-alpha-2/classworlds-1.1-alpha-2.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/maven/maven-profile/2.0.6/maven-profile-2.0.6.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/maven/maven-artifact-manager/2.0.6/maven-artifact-manager-2.0.6.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/maven/maven-repository-metadata/2.0.6/maven-repository-metadata-2.0.6.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/maven/maven-artifact/2.0.6/maven-artifact-2.0.6.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/maven/wagon/wagon-provider-api/1.0-beta-2/wagon-provider-api-1.0-beta-2.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/maven/maven-plugin-registry/2.0.6/maven-plugin-registry-2.0.6.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/maven/maven-plugin-api/2.0.6/maven-plugin-api-2.0.6.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/maven/reporting/maven-reporting-api/2.0.6/maven-reporting-api-2.0.6.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/maven/doxia/doxia-sink-api/1.0/doxia-sink-api-1.0.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/maven/reporting/maven-reporting-impl/2.0.4.3/maven-reporting-impl-2.0.4.3.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/maven/doxia/doxia-core/1.0/doxia-core-1.0.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/maven/doxia/doxia-site-renderer/1.0/doxia-site-renderer-1.0.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/codehaus/plexus/plexus-i18n/1.0-beta-7/plexus-i18n-1.0-beta-7.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/codehaus/plexus/plexus-velocity/1.1.7/plexus-velocity-1.1.7.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/velocity/velocity/1.5/velocity-1.5.jar"/>
+  <classpathentry kind="var" path="M2_REPO/oro/oro/2.0.8/oro-2.0.8.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/maven/doxia/doxia-decoration-model/1.0/doxia-decoration-model-1.0.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/maven/doxia/doxia-module-apt/1.0/doxia-module-apt-1.0.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/maven/doxia/doxia-module-fml/1.0/doxia-module-fml-1.0.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/maven/doxia/doxia-module-xdoc/1.0/doxia-module-xdoc-1.0.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/maven/doxia/doxia-module-xhtml/1.0/doxia-module-xhtml-1.0.jar"/>
+  <classpathentry kind="var" path="M2_REPO/commons-validator/commons-validator/1.2.0/commons-validator-1.2.0.jar"/>
+  <classpathentry kind="var" path="M2_REPO/commons-beanutils/commons-beanutils/1.7.0/commons-beanutils-1.7.0.jar"/>
+  <classpathentry kind="var" path="M2_REPO/commons-digester/commons-digester/1.6/commons-digester-1.6.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/maven/shared/maven-doxia-tools/1.0.2/maven-doxia-tools-1.0.2.jar"/>
 </classpath>

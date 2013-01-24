@@ -41,7 +41,7 @@ public class GooglePageTest {
 	}	
 	@After
 	public void finaliza() {
-		driver.close();	
+		//driver.close(); close da erro no log	
 		driver.quit();
 	}
 }

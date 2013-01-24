@@ -16,7 +16,7 @@ public class TesteAutomatizado {
 
 		campoDeTexto.submit();
 		
-		driver.close();
+		//driver.close();
 		driver.quit();
 	}
 }
