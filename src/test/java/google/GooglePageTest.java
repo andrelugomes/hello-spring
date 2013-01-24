@@ -23,9 +23,7 @@ public class GooglePageTest {
 	@Before
 	public void inicializa(){
 		this.driver = new Driver().chromeStart();
-		this.google = new GooglePage(driver);
-		
-		
+		this.google = new GooglePage(driver);		
 	}	
 	
 	/**
