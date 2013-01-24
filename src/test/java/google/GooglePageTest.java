@@ -17,13 +17,20 @@ public class GooglePageTest {
 	private WebDriver driver; 
 	private GooglePage google;
 	
+	/**
+	 * inicializa os testes criando o Driver e a página a ser testeda
+	 */
 	@Before
 	public void inicializa(){
-		this.driver = new Driver().start();
+		this.driver = new Driver().chromeStart();
 		this.google = new GooglePage(driver);
+		
 		
 	}	
 	
+	/**
+	 * 
+	 */
 	@Test
 	public void deveFazerUmaBuscaNoGoogleTest() {
 		google.visita();
@@ -32,6 +39,9 @@ public class GooglePageTest {
         assertTrue(google.existe("DClick"));
 	}
 	
+	/**
+	 * 
+	 */
 	@Test
 	public void deveFazerUmaBuscaNoGoogleSemResultadoTest() {
 		google.visita();
@@ -39,6 +49,9 @@ public class GooglePageTest {
 		
         assertFalse(google.existe("DClick Software"));
 	}	
+	/**
+	 * Finaliza o Driver e fecha o browser
+	 */
 	@After
 	public void finaliza() {
 		//driver.close(); close da erro no log	

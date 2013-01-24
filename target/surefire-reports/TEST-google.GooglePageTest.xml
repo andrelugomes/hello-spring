@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="0" time="22.394" errors="0" skipped="0" tests="2" name="google.GooglePageTest">
+<testsuite failures="0" time="24.791" errors="0" skipped="0" tests="2" name="google.GooglePageTest">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="c:\Program Files (x86)\Java\jdk1.7.0_03\jre\bin"/>
@@ -43,7 +43,7 @@
     <property name="java.vm.specification.version" value="1.7"/>
     <property name="sun.arch.data.model" value="32"/>
     <property name="java.home" value="c:\Program Files (x86)\Java\jdk1.7.0_03\jre"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean install site"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean install"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="pt"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -60,6 +60,6 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="pentium_pro+mmx pentium_pro pentium+mmx pentium i486 i386 i86"/>
   </properties>
-  <testcase time="12.182" classname="google.GooglePageTest" name="deveFazerUmaBuscaNoGoogleSemResultadoTest"/>
-  <testcase time="10.151" classname="google.GooglePageTest" name="deveFazerUmaBuscaNoGoogleTest"/>
+  <testcase time="14.222" classname="google.GooglePageTest" name="deveFazerUmaBuscaNoGoogleTest"/>
+  <testcase time="10.523" classname="google.GooglePageTest" name="deveFazerUmaBuscaNoGoogleSemResultadoTest"/>
 </testsuite>

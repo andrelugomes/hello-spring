@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites>
-  <testsuite errors="0" failures="0" name="GooglePageTest" package="google" skipped="0" tests="2" time="22.394">
+  <testsuite errors="0" failures="0" name="GooglePageTest" package="google" skipped="0" tests="2" time="24.791">
       <properties>
           <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
 
@@ -84,7 +84,7 @@
 
           <property name="java.home" value="c:\Program Files (x86)\Java\jdk1.7.0_03\jre" />
 
-          <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean install site" />
+          <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean install" />
 
           <property name="java.specification.vendor" value="Oracle Corporation" />
 
@@ -118,9 +118,9 @@
 
       </properties>
 
-      <testcase classname="google.GooglePageTest" name="deveFazerUmaBuscaNoGoogleSemResultadoTest" time="12.182" />
+      <testcase classname="google.GooglePageTest" name="deveFazerUmaBuscaNoGoogleTest" time="14.222" />
 
-      <testcase classname="google.GooglePageTest" name="deveFazerUmaBuscaNoGoogleTest" time="10.151" />
+      <testcase classname="google.GooglePageTest" name="deveFazerUmaBuscaNoGoogleSemResultadoTest" time="10.523" />
 
   </testsuite>
 </testsuites>
