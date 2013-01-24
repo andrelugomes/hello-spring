@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites>
-  <testsuite errors="0" failures="0" name="GooglePageTest" package="google" skipped="0" tests="2" time="24.791">
+  <testsuite errors="0" failures="0" name="GooglePageTest" package="google" skipped="0" tests="2" time="25.062">
       <properties>
           <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
 
@@ -118,9 +118,9 @@
 
       </properties>
 
-      <testcase classname="google.GooglePageTest" name="deveFazerUmaBuscaNoGoogleTest" time="14.222" />
+      <testcase classname="google.GooglePageTest" name="deveFazerUmaBuscaNoGoogleSemResultadoTest" time="15.996" />
 
-      <testcase classname="google.GooglePageTest" name="deveFazerUmaBuscaNoGoogleSemResultadoTest" time="10.523" />
+      <testcase classname="google.GooglePageTest" name="deveFazerUmaBuscaNoGoogleTest" time="9.017" />
 
   </testsuite>
 </testsuites>

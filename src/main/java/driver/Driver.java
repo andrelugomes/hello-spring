@@ -8,12 +8,13 @@ public class Driver {
 	
 	public WebDriver chromeStart() {
 		String os = System.getProperty("os.name");
-		if (os.contains("Windowns")) {
+		if (os.contains("Windows")) {
 			System.setProperty("webdriver.chrome.driver","src/test/resources/chromedriver.exe");
 		}
 		if(os.contains("Linux")){
 			System.setProperty("webdriver.chrome.driver","src/test/resources/chromedriver");
 		}
+		System.out.println(os);
 		return  new ChromeDriver();
 	}
 	
