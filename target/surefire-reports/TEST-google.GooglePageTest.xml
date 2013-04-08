@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="0" time="48.322" errors="0" skipped="0" tests="2" name="google.GooglePageTest">
+<testsuite failures="0" time="29.108" errors="0" skipped="0" tests="2" name="google.GooglePageTest">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="c:\Program Files (x86)\Java\jdk1.7.0_03\jre\bin"/>
@@ -28,7 +28,7 @@
     <property name="os.name" value="Windows 7"/>
     <property name="classworlds.conf" value="c:/apache-maven-3.0.4/bin/m2.conf"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.library.path" value="c:\Program Files (x86)\Java\jdk1.7.0_03\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;c:\Users\andre.gomes\bin;.;C:\Program Files (x86)\Git\local\bin;C:\Program Files (x86)\Git\mingw\bin;C:\Program Files (x86)\Git\bin;c:\Windows\system32;c:\Windows;c:\Windows\System32\Wbem;c:\Windows\System32\WindowsPowerShell\v1.0\;c:\Program Files (x86)\Java\jdk1.7.0_03\bin;c:\Program Files\nodejs\;c:\apache-ant-1.8.4\bin;c:\apache-maven-3.0.4\bin;."/>
+    <property name="java.library.path" value="c:\Program Files (x86)\Java\jdk1.7.0_03\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;c:\Users\andre.gomes\bin;.;C:\Program Files (x86)\Git\local\bin;C:\Program Files (x86)\Git\mingw\bin;C:\Program Files (x86)\Git\bin;c:\Windows\system32;c:\Windows;c:\Windows\System32\Wbem;c:\Windows\System32\WindowsPowerShell\v1.0\;c:\Program Files (x86)\Java\jdk1.7.0_03\bin;c:\Program Files\nodejs\;c:\apache-ant-1.8.4\bin;c:\apache-maven-3.0.4\bin;c:\Users\andre.gomes\AppData\Roaming\npm\;."/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.class.version" value="51.0"/>
     <property name="sun.management.compiler" value="HotSpot Client Compiler"/>
@@ -60,6 +60,6 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="pentium_pro+mmx pentium_pro pentium+mmx pentium i486 i386 i86"/>
   </properties>
-  <testcase time="31.415" classname="google.GooglePageTest" name="deveFazerUmaBuscaNoGoogleSemResultadoTest"/>
-  <testcase time="16.85" classname="google.GooglePageTest" name="deveFazerUmaBuscaNoGoogleTest"/>
+  <testcase time="20.43" classname="google.GooglePageTest" name="deveFazerUmaBuscaNoGoogleSemResultadoTest"/>
+  <testcase time="8.597" classname="google.GooglePageTest" name="deveFazerUmaBuscaNoGoogleTest"/>
 </testsuite>

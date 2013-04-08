@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites>
-  <testsuite errors="0" failures="0" name="GooglePageTest" package="google" skipped="0" tests="2" time="48.322">
+  <testsuite errors="0" failures="0" name="GooglePageTest" package="google" skipped="0" tests="2" time="29.108">
       <properties>
           <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
 
@@ -54,7 +54,7 @@
 
           <property name="sun.jnu.encoding" value="Cp1252" />
 
-          <property name="java.library.path" value="c:\Program Files (x86)\Java\jdk1.7.0_03\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;c:\Users\andre.gomes\bin;.;C:\Program Files (x86)\Git\local\bin;C:\Program Files (x86)\Git\mingw\bin;C:\Program Files (x86)\Git\bin;c:\Windows\system32;c:\Windows;c:\Windows\System32\Wbem;c:\Windows\System32\WindowsPowerShell\v1.0\;c:\Program Files (x86)\Java\jdk1.7.0_03\bin;c:\Program Files\nodejs\;c:\apache-ant-1.8.4\bin;c:\apache-maven-3.0.4\bin;." />
+          <property name="java.library.path" value="c:\Program Files (x86)\Java\jdk1.7.0_03\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;c:\Users\andre.gomes\bin;.;C:\Program Files (x86)\Git\local\bin;C:\Program Files (x86)\Git\mingw\bin;C:\Program Files (x86)\Git\bin;c:\Windows\system32;c:\Windows;c:\Windows\System32\Wbem;c:\Windows\System32\WindowsPowerShell\v1.0\;c:\Program Files (x86)\Java\jdk1.7.0_03\bin;c:\Program Files\nodejs\;c:\apache-ant-1.8.4\bin;c:\apache-maven-3.0.4\bin;c:\Users\andre.gomes\AppData\Roaming\npm\;." />
 
           <property name="java.specification.name" value="Java Platform API Specification" />
 
@@ -118,9 +118,9 @@
 
       </properties>
 
-      <testcase classname="google.GooglePageTest" name="deveFazerUmaBuscaNoGoogleSemResultadoTest" time="31.415" />
+      <testcase classname="google.GooglePageTest" name="deveFazerUmaBuscaNoGoogleSemResultadoTest" time="20.43" />
 
-      <testcase classname="google.GooglePageTest" name="deveFazerUmaBuscaNoGoogleTest" time="16.85" />
+      <testcase classname="google.GooglePageTest" name="deveFazerUmaBuscaNoGoogleTest" time="8.597" />
 
   </testsuite>
 </testsuites>

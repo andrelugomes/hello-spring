@@ -1,25 +1,25 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-  <groupId>selenium-maven-jenkins</groupId>
-  <artifactId>selenium-maven-jenkins</artifactId>
-  <version>1.0-SNAPSHOT</version>
-  <packaging>jar</packaging>
+	<groupId>selenium-maven-jenkins</groupId>
+	<artifactId>selenium-maven-jenkins</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
 
-  <name>selenium-maven-jenkins</name>
-  <url>http://maven.apache.org</url>
+	<name>selenium-maven-jenkins</name>
+	<url>http://maven.apache.org</url>
 
-  <properties>
-    	<java.version>1.6</java.version>
+	<properties>
+		<java.version>1.6</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring.version>3.1.1.RELEASE</spring.version>
 		<targetJdk>1.6</targetJdk>
 		<ruleset>ruleset.xml</ruleset>
 		<checkstyle>checkstyle.xml</checkstyle>
-  </properties>
+	</properties>
 
-    <dependencies>
+	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -27,16 +27,16 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-	        <groupId>org.seleniumhq.selenium</groupId>
-	        <artifactId>selenium-java</artifactId>
-	        <version>2.28.0</version>
-    	</dependency> 
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>2.28.0</version>
+		</dependency>
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-server</artifactId>
 			<version>2.28.0</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
@@ -72,7 +72,7 @@
 			<artifactId>spring-expression</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
@@ -93,71 +93,71 @@
 			<groupId>cglib</groupId>
 			<artifactId>cglib</artifactId>
 			<version>2.2.2</version>
-		</dependency>		
-      	<dependency>
-	        <groupId>ant</groupId>
-	        <artifactId>ant-junit</artifactId>
-	        <version>1.6.2</version>
-      	</dependency>
-      	<dependency>
-	        <groupId>org.apache.maven.plugins</groupId>
-	        <artifactId>maven-surefire-report-plugin</artifactId>
-	        <version>2.5</version>
-	        <type>maven-plugin</type>
-    	</dependency>  
-  </dependencies>
- <build>
-	<plugins>
-		<plugin>
+		</dependency>
+		<dependency>
+			<groupId>ant</groupId>
+			<artifactId>ant-junit</artifactId>
+			<version>1.6.2</version>
+		</dependency>
+		<dependency>
 			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-compiler-plugin</artifactId>
-			<version>2.3.2</version>
-			<configuration>
-				<source>1.6</source>
-				<target>1.6</target>
-			</configuration>
-		</plugin>
-		<plugin>
-		    <artifactId>maven-antrun-plugin</artifactId>
-		    <executions>
-		      <execution>
-		        <id>test-reports</id>
-		        <phase>test</phase>
-		        <configuration>
-		          <tasks>
-		            <junitreport todir="target/surefire-reports">
-		              <fileset dir="target/surefire-reports">
-		                <include name="**/*.xml"/>
-		              </fileset>
-		              <report format="noframes" todir="target/surefire-reports"/>
-		            </junitreport>
-		          </tasks>
-		        </configuration>
-		        <goals>
-		          <goal>run</goal>
-		        </goals>
-		      </execution>
-		    </executions>
-		    <dependencies>
-		      <dependency>
-		        <groupId>ant</groupId>
-		        <artifactId>ant-junit</artifactId>
-		        <version>1.6.2</version>
-		      </dependency>
-		    </dependencies>
-		  </plugin>
-	</plugins>
-</build>
- <reporting>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-report-plugin</artifactId>
-        <version>2.5</version>
-        <configuration>
-          <outputName>GoogleSearchTestResults</outputName>                   
-        </configuration>
-      </plugin>
-    </plugins>
-  </reporting>    
+			<artifactId>maven-surefire-report-plugin</artifactId>
+			<version>2.5</version>
+			<type>maven-plugin</type>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>test-reports</id>
+						<phase>test</phase>
+						<configuration>
+							<tasks>
+								<junitreport todir="target/surefire-reports">
+									<fileset dir="target/surefire-reports">
+										<include name="**/*.xml" />
+									</fileset>
+									<report format="noframes" todir="target/surefire-reports" />
+								</junitreport>
+							</tasks>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>ant</groupId>
+						<artifactId>ant-junit</artifactId>
+						<version>1.6.2</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+		</plugins>
+	</build>
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-report-plugin</artifactId>
+				<version>2.5</version>
+				<configuration>
+					<outputName>GoogleSearchTestResults</outputName>
+				</configuration>
+			</plugin>
+		</plugins>
+	</reporting>
 </project>
