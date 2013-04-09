@@ -23,6 +23,8 @@ public class RemotePCGoogleTest {
 		DesiredCapabilities ieCapabilities = DesiredCapabilities.internetExplorer();
 		ieCapabilities.setJavascriptEnabled(true);
 		ieCapabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
+		
+		//IEDriver.exe esta na pasta c:/Systen32/IEDriver.exe no server 192.168.8.117
 		WebDriver driver = new RemoteWebDriver(
                                 new URL("http://192.168.8.117:4444/wd/hub"), 
                                 ieCapabilities);
