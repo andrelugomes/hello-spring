@@ -1,5 +1,5 @@
-[0.000][INFO]:      ChromeDriver 26.0.1383.0 C:\Users\andre.gomes\workspace\selenium-maven-jenkins\src\test\resources\chromedriver.exe
-[0.589][FINE]:      Initializing session with capabilities {
+[0.001][INFO]:      ChromeDriver 26.0.1383.0 C:\Users\andre.gomes\workspace\selenium-maven-jenkins\src\test\resources\chromedriver.exe
+[0.838][FINE]:      Initializing session with capabilities {
    "browserName": "chrome",
    "chrome.switches": [  ],
    "chromeOptions": {
@@ -10,11 +10,11 @@
    "version": ""
 }
 
-[0.590][INFO]:      Launching chrome: "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --disable-hang-monitor --disable-prompt-on-repost --dom-automation --full-memory-crash-report --no-default-browser-check --no-first-run --disable-background-networking --disable-sync --disable-translate --disable-web-resources --safebrowsing-disable-auto-update --safebrowsing-disable-download-protection --disable-client-side-phishing-detection --disable-component-update --disable-default-apps --enable-logging --log-level=1 --ignore-certificate-errors about:blank
-[2.030][INFO]:      Connected to Chrome successfully. Version: 26.0.1410.43
-[2.041][FINE]:      Command received (/session/2dcaf86d3916883bd02409df57313fbc)
-[2.041][FINE]:      Command finished (/session/2dcaf86d3916883bd02409df57313fbc) with response {
-   "sessionId": "2dcaf86d3916883bd02409df57313fbc",
+[0.839][INFO]:      Launching chrome: "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --disable-hang-monitor --disable-prompt-on-repost --dom-automation --full-memory-crash-report --no-default-browser-check --no-first-run --disable-background-networking --disable-sync --disable-translate --disable-web-resources --safebrowsing-disable-auto-update --safebrowsing-disable-download-protection --disable-client-side-phishing-detection --disable-component-update --disable-default-apps --enable-logging --log-level=1 --ignore-certificate-errors about:blank
+[2.271][INFO]:      Connected to Chrome successfully. Version: 26.0.1410.64
+[2.299][FINE]:      Command received (/session/510aae24e19c144f5cea42308334b8ae)
+[2.300][FINE]:      Command finished (/session/510aae24e19c144f5cea42308334b8ae) with response {
+   "sessionId": "510aae24e19c144f5cea42308334b8ae",
    "status": 0,
    "value": {
       "acceptSslCerts": false,
@@ -31,105 +31,43 @@
       "platform": "windows",
       "rotatable": false,
       "takesScreenshot": true,
-      "version": "26.0.1410.43",
+      "version": "26.0.1410.64",
       "webStorageEnabled": true
    }
 }
 
-[2.049][FINE]:      Command received (/session/2dcaf86d3916883bd02409df57313fbc/url) with params {
-   "url": "http://www.google.com.br"
+[2.344][FINE]:      Command received (/session/510aae24e19c144f5cea42308334b8ae/url) with params {
+   "url": "www.google.com.br"
 }
 
-[2.050][FINER]:     Waiting for all views to stop loading...
-[2.050][FINER]:     Done waiting for all views to stop loading
-[3.834][FINER]:     Waiting for all views to stop loading...
-[3.837][FINER]:     Done waiting for all views to stop loading
-[3.837][FINE]:      Command finished (/session/2dcaf86d3916883bd02409df57313fbc/url) with response {
-   "sessionId": "2dcaf86d3916883bd02409df57313fbc",
+[2.344][FINER]:     Waiting for all views to stop loading...
+[2.368][FINER]:     Done waiting for all views to stop loading
+[2.765][FINER]:     Waiting for all views to stop loading...
+[2.771][FINER]:     Done waiting for all views to stop loading
+[2.771][FINE]:      Command finished (/session/510aae24e19c144f5cea42308334b8ae/url) with response {
+   "sessionId": "510aae24e19c144f5cea42308334b8ae",
    "status": 0,
    "value": {
 
    }
 }
 
-[3.847][FINE]:      Command received (/session/2dcaf86d3916883bd02409df57313fbc/element) with params {
+[2.782][FINE]:      Command received (/session/510aae24e19c144f5cea42308334b8ae/element) with params {
    "using": "name",
    "value": "q"
 }
 
-[3.847][FINER]:     Waiting for all views to stop loading...
-[3.847][FINER]:     Done waiting for all views to stop loading
-[4.107][FINER]:     Waiting for all views to stop loading...
-[4.249][FINER]:     Done waiting for all views to stop loading
-[4.249][FINE]:      Command finished (/session/2dcaf86d3916883bd02409df57313fbc/element) with response {
-   "sessionId": "2dcaf86d3916883bd02409df57313fbc",
-   "status": 0,
+[2.782][FINER]:     Waiting for all views to stop loading...
+[2.783][FINER]:     Done waiting for all views to stop loading
+[2.831][FINER]:     Waiting for all views to stop loading...
+[2.831][FINER]:     Done waiting for all views to stop loading
+[2.831][WARNING]:   Command finished (/session/510aae24e19c144f5cea42308334b8ae/element) with response {
+   "sessionId": "510aae24e19c144f5cea42308334b8ae",
+   "status": 7,
    "value": {
-      "ELEMENT": ":wdc:1365435478035"
+      "message": "The element could not be found"
    }
 }
 
-[4.259][FINE]:      Command received (/session/2dcaf86d3916883bd02409df57313fbc/element/:wdc:1365435478035/value) with params {
-   "id": ":wdc:1365435478035",
-   "value": [ "DClick" ]
-}
-
-[4.259][FINER]:     Waiting for all views to stop loading...
-[4.259][FINER]:     Done waiting for all views to stop loading
-[4.420][FINER]:     Waiting for all views to stop loading...
-[4.421][FINER]:     Done waiting for all views to stop loading
-[4.421][FINE]:      Command finished (/session/2dcaf86d3916883bd02409df57313fbc/element/:wdc:1365435478035/value) with response {
-   "sessionId": "2dcaf86d3916883bd02409df57313fbc",
-   "status": 0,
-   "value": {
-
-   }
-}
-
-[4.428][FINE]:      Command received (/session/2dcaf86d3916883bd02409df57313fbc/element) with params {
-   "using": "name",
-   "value": "btnG"
-}
-
-[4.428][FINER]:     Waiting for all views to stop loading...
-[4.429][FINER]:     Done waiting for all views to stop loading
-[4.460][FINER]:     Waiting for all views to stop loading...
-[4.460][FINER]:     Done waiting for all views to stop loading
-[4.460][FINE]:      Command finished (/session/2dcaf86d3916883bd02409df57313fbc/element) with response {
-   "sessionId": "2dcaf86d3916883bd02409df57313fbc",
-   "status": 0,
-   "value": {
-      "ELEMENT": ":wdc:1365435478036"
-   }
-}
-
-[4.468][FINE]:      Command received (/session/2dcaf86d3916883bd02409df57313fbc/element/:wdc:1365435478036/click) with params {
-   "id": ":wdc:1365435478036"
-}
-
-[4.468][FINER]:     Waiting for all views to stop loading...
-[4.468][FINER]:     Done waiting for all views to stop loading
-[4.531][WARNING]:   Element's descendant would receive the click. Consider clicking the descendant instead. Descendant: <span class="gbqfi"></span>
-[4.552][FINER]:     Waiting for all views to stop loading...
-[4.552][FINER]:     Done waiting for all views to stop loading
-[4.552][FINE]:      Command finished (/session/2dcaf86d3916883bd02409df57313fbc/element/:wdc:1365435478036/click) with response {
-   "sessionId": "2dcaf86d3916883bd02409df57313fbc",
-   "status": 0,
-   "value": {
-
-   }
-}
-
-[4.559][FINE]:      Command received (/session/2dcaf86d3916883bd02409df57313fbc/source)
-[4.559][FINER]:     Waiting for all views to stop loading...
-[4.559][FINER]:     Done waiting for all views to stop loading
-[4.595][FINER]:     Waiting for all views to stop loading...
-[4.595][FINER]:     Done waiting for all views to stop loading
-[4.595][FINE]:      Command finished (/session/2dcaf86d3916883bd02409df57313fbc/source) with response {
-   "sessionId": "2dcaf86d3916883bd02409df57313fbc",
-   "status": 0,
-   "value": "\u003C!DOCTYPE html\u003E\u003Chtml itemscope=\"itemscope\" itemtype=\"http://schema.org/WebPage\"\u003E\u003Chead\u003E\u003Cmeta itemp..."
-}
-
-[4.626][FINE]:      Command received (/session/2dcaf86d3916883bd02409df57313fbc)
-[5.765][INFO]:      Chrome shutdown
+[2.903][FINE]:      Command received (/session/510aae24e19c144f5cea42308334b8ae)
+[4.192][INFO]:      Chrome shutdown
