@@ -2,6 +2,8 @@ package google;
 
 import static org.junit.Assert.*;
 
+import java.net.MalformedURLException;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,8 +17,8 @@ public class GoogleTest {
 	private WebDriver driver; 
 	
 	@Before
-	public void inicializa(){
-		this.driver = new Driver().chromeStart();
+	public void inicializa() throws MalformedURLException{
+		this.driver = new Driver().phantomJs();
 	}	
 	
 	@Test
@@ -24,10 +26,10 @@ public class GoogleTest {
 		driver.get("http://www.google.com.br");
 		WebElement  campoDeTexto = driver.findElement(By.name("q"));
 		campoDeTexto.sendKeys("DClick");
-		WebElement botaoPesquisar = driver.findElement(By.name("btnGddddd"));
+		WebElement botaoPesquisar = driver.findElement(By.name("btnGgggg"));
 		botaoPesquisar.click();
 		
-		assertTrue(driver.getPageSource().contains("Mathias cachorro"));
+		assertTrue(driver.getPageSource().contains("DClick"));
 		
 	}
 	@After
