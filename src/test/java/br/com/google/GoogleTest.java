@@ -43,7 +43,6 @@ public class GoogleTest {
 		google.visita();
 		google.busca("Dclick");
 		
-		
 		assertTrue(google.existe("Dclick"));
 		
 	}
