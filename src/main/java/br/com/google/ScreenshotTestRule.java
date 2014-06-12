@@ -19,6 +19,8 @@ public class ScreenshotTestRule extends TestWatcher{
 	@Autowired
 	private WebDriver driver;
 	
+	public ScreenshotTestRule(){}
+	
 	/* (non-Javadoc)
 	 * @see org.junit.rules.TestWatcher#failed(java.lang.Throwable, org.junit.runner.Description)
 	 */
