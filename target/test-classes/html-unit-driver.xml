@@ -8,11 +8,9 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 
-	<import resource="classpath:automatizacao.xml" />
-
-	<context:component-scan base-package="br.com.google" />
 	
-	<import resource="classpath:html-unit-driver.xml" />
-
-	<alias alias="driver" name="html-unit-driver" />		
+	<bean id="html-unit-driver" class="org.openqa.selenium.htmlunit.HtmlUnitDriver"
+		destroy-method="quit" lazy-init="true" >
+		<constructor-arg value="true" />
+	</bean>
 </beans>

@@ -44,10 +44,10 @@ public class ScreenshotTestRule extends TestWatcher{
     }
 
 	private File getDestinationFile(Description description) {
-    	new File("target/surefire-reports/").mkdirs();
-    	String directory = "target/surefire-reports/";
+    	new File("target/screenshots/").mkdirs();
+    	String directory = "target/screenshot/";
         String fileName = description.getMethodName();
-        String absoluteFileName = directory + "/screenshot-" + fileName +".png";
+        String absoluteFileName = directory + description.getDisplayName() + fileName +".png";
 
         return new File(absoluteFileName);
     }
