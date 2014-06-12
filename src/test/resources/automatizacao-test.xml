@@ -12,7 +12,7 @@
 
 	<context:component-scan base-package="br.com.google" />
 	
-	<import resource="classpath:internet-explorer-driver.xml" />
+	<import resource="classpath:chrome-driver.xml" />
 
-	<alias alias="driver" name="driverIE" />		
+	<alias alias="driver" name="chrome-driver" />		
 </beans>
