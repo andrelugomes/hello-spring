@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+		
+	<bean id="phantomCapabilities" class="org.openqa.selenium.remote.DesiredCapabilities" />
+
+	<bean id="phantomJavascriptEnabledCapabilitySetter"
+		class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		<property name="targetObject" ref="phantomCapabilities" />
+		<property name="targetMethod" value="setJavascriptEnabled" />
+		<property name="arguments">
+				<value>true</value>
+		</property>
+	</bean>
+	
+	<bean id="phantomTakesScreenshotCapabilitySetter"
+		class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		<property name="targetObject" ref="phantomCapabilities" />
+		<property name="targetMethod" value="setCapability" />
+		<property name="arguments">
+				<list>
+					<value>"takesScreenshot"</value>
+					<value>true</value>
+				</list>
+		</property>
+	</bean>
+		
+	<bean id="phantomHandlesAlertsCapabilitySetter"
+		class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		<property name="targetObject" ref="phantomCapabilities" />
+		<property name="targetMethod" value="setCapability" />
+		<property name="arguments">
+				<list>
+					<value>"handlesAlerts"</value>
+					<value>true</value>					
+				</list>
+		</property>
+	</bean>
+	
+	<!--Criar uma tamanho da tela padrão para o PhantomJS  -->
+	<!-- <bean id="phantomjsDimension"	class="org.openqa.selenium.Dimension">
+		<constructor-arg name="width" value="1024"/>
+		<constructor-arg name="height" value="762" />
+	</bean> -->
+	
+	<bean id="remotePhantomWebDriver" class="org.openqa.selenium.remote.RemoteWebDriver"
+		destroy-method="quit" lazy-init="true">
+		<constructor-arg name="remoteAddress" value="http://localhost:8910" />
+		<constructor-arg name="desiredCapabilities" ref="phantomCapabilities" />
+	</bean>
+	
+	<bean id="phantomJsStarterUrlByPass"
+		class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		<property name="targetObject" ref="remotePhantomWebDriver" />
+		<property name="targetMethod" value="get" />
+		<property name="arguments">
+					<value>http://www.webdev.sescsp.org.br/sesc/previsesc/?TESTES_AUTOMATIZADOS_DCLICK</value>
+		</property>
+	</bean>
+	
+	<!-- Setar o Driver com driver.manage().window().setSize(new Dimension(1024, 762));  -->
+</beans>

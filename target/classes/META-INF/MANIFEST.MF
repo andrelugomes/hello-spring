@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
 Built-By: andre.gomes
-Build-Jdk: 1.7.0_11
+Build-Jdk: 1.7.0_60
 Created-By: Maven Integration for Eclipse
 

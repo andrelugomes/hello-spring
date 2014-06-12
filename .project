@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-  <name>selenium-maven-jenkins</name>
+  <name>phamtonjs-spring</name>
   <comment>NO_M2ECLIPSE_SUPPORT: Project files created with the maven-eclipse-plugin are not supported in M2Eclipse.</comment>
   <projects/>
   <buildSpec>
@@ -8,11 +8,15 @@
       <name>org.eclipse.jdt.core.javabuilder</name>
     </buildCommand>
     <buildCommand>
+      <name>org.springframework.ide.eclipse.core.springbuilder</name>
+    </buildCommand>
+    <buildCommand>
       <name>org.eclipse.m2e.core.maven2Builder</name>
     </buildCommand>
   </buildSpec>
   <natures>
-    <nature>org.eclipse.m2e.core.maven2Nature</nature>
+    <nature>org.springframework.ide.eclipse.core.springnature</nature>
     <nature>org.eclipse.jdt.core.javanature</nature>
+    <nature>org.eclipse.m2e.core.maven2Nature</nature>
   </natures>
 </projectDescription>
