@@ -46,8 +46,8 @@ public class ScreenshotTestRule extends TestWatcher{
 	private File getDestinationFile(Description description) {
     	new File("target/screenshots/").mkdirs();
     	String directory = "target/screenshot/";
-        String fileName = description.getMethodName();
-        String absoluteFileName = directory + description.getDisplayName() + fileName +".png";
+        String fileName = description.getDisplayName();
+        String absoluteFileName = directory + fileName +".png";
 
         return new File(absoluteFileName);
     }
