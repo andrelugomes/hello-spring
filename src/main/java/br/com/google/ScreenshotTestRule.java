@@ -9,7 +9,6 @@ import org.junit.runner.Description;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.Augmenter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -17,7 +16,7 @@ import org.springframework.stereotype.Component;
 public class ScreenshotTestRule extends TestWatcher{
 
 	@Autowired
-	private WebDriver driver;
+	private WebDriver driver; 
 	
 	public ScreenshotTestRule(){
 	}

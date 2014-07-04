@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class GooglePage {
+	
 	@Autowired
 	private WebDriver driver;
 

@@ -8,11 +8,8 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 
-	<import resource="classpath:automatizacao.xml" />
 
-	<context:component-scan base-package="br.com.google" />
-	
-	<import resource="classpath:firefox-driver.xml" />
+	<bean id="firefox" class="org.openqa.selenium.firefox.FirefoxDriver"
+		destroy-method="quit" />
 
-	<alias alias="driver" name="firefox" />		
 </beans>
