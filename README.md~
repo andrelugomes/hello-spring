@@ -24,13 +24,3 @@ https://code.google.com/p/selenium/wiki/HtmlUnit
 ##GhostDriver
 Webdriver para o PhantomJS
 Start PhantomJS com GhostDriver: phantomjs --webbriver=8910
-
-#Screenshots
-
-Webbrowsers : ScreenshotTestRule.java
-
-Headless Browsers : HeadlessScreenshotTestRule.java
-**Sem suporte ao HtmlUnit
-
-#Page Object
-Estudando tecnicas de PageObjects: Um Design Pattern para Automação com Selenium
