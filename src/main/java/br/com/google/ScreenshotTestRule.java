@@ -9,6 +9,7 @@ import org.junit.runner.Description;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.Augmenter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -25,7 +26,7 @@ public class ScreenshotTestRule extends TestWatcher{
     protected void failed(Throwable e, Description description) {
         System.out.println("Falha no teste : "+description.getMethodName()+" Classe: "+description.getClassName());
         System.out.println("Capiturando tela...");
-        //driver = new Augmenter().augment(driver);
+        driver = new Augmenter().augment(driver);
         File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         File destFile = getDestinationFile(description);
         try {

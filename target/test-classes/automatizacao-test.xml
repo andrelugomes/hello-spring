@@ -10,9 +10,9 @@
 
 	<import resource="classpath:automatizacao.xml" />
 
-	<context:component-scan base-package="br.com.google" />
+	<context:component-scan base-package="br.com" />
 	
 	<import resource="classpath:firefox-driver.xml" />
-
-	<alias alias="driver" name="firefox" />		
+	<alias alias="driver" name="firefox" />	
+	
 </beans>
