@@ -4,6 +4,8 @@
     <bytecodeTargetLevel>
       <module name="gs-securing-web_main" target="1.8" />
       <module name="gs-securing-web_test" target="1.8" />
+      <module name="spring-boot-securing-web-thymeleaf_main" target="1.8" />
+      <module name="spring-boot-securing-web-thymeleaf_test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/gs-securing-web_main.iml" filepath="$PROJECT_DIR$/.idea/modules/gs-securing-web_main.iml" group="gs-securing-web" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/gs-securing-web_test.iml" filepath="$PROJECT_DIR$/.idea/modules/gs-securing-web_test.iml" group="gs-securing-web" />
       <module fileurl="file://$PROJECT_DIR$/spring-boot-securing-web-thymeleaf.iml" filepath="$PROJECT_DIR$/spring-boot-securing-web-thymeleaf.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spring-boot-securing-web-thymeleaf_main.iml" filepath="$PROJECT_DIR$/.idea/modules/spring-boot-securing-web-thymeleaf_main.iml" group="spring-boot-securing-web-thymeleaf" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spring-boot-securing-web-thymeleaf_test.iml" filepath="$PROJECT_DIR$/.idea/modules/spring-boot-securing-web-thymeleaf_test.iml" group="spring-boot-securing-web-thymeleaf" />
     </modules>
   </component>
 </project>
