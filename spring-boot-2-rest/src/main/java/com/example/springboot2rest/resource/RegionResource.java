@@ -3,6 +3,10 @@ package com.example.springboot2rest.resource;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
+import com.example.springboot2rest.dto.RegionDTO;
+import com.example.springboot2rest.mapper.RegionMapper;
+import com.example.springboot2rest.mapper.StateMapper;
+import com.example.springboot2rest.dto.StateDTO;
 import com.example.springboot2rest.model.City;
 import com.example.springboot2rest.model.Region;
 import com.example.springboot2rest.model.State;
@@ -46,9 +50,14 @@ public class RegionResource implements API {
     @Autowired
     private CityRepository cityRepository;
 
+    @Autowired
+    private StateMapper stateMapper;
+
+    @Autowired
+    private RegionMapper regionMapper;
+
     @GetMapping
-    @ApiOperation(value = "View a list of available regions",
-        response = Region.class, responseContainer = "List")
+    @ApiOperation(value = "View a list of available regions", response = Region.class, responseContainer = "List")
     @ApiResponses(value = {
         @ApiResponse(code = 200, message = "Successfully retrieved list"),
         @ApiResponse(code = 401, message = "You are not authorized"),
@@ -69,6 +78,7 @@ public class RegionResource implements API {
     }
 
     @GetMapping(value = "/{region_id}/states")
+    @ApiOperation(value = "Get all states from Region", response = State.class, responseContainer = "List")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "page", dataType = "integer", paramType = "query",
                     value = "Results page you want to retrieve (0..N)"),
@@ -81,7 +91,25 @@ public class RegionResource implements API {
         return stateRepository.findByRegionId(id, pageable);
     }
 
-    @GetMapping(value = "/{region_id}/states/{state_id}/cities", produces = { V1 }) //redundant
+    @PostMapping(value = "/{region_id}/states")
+    @ResponseStatus(HttpStatus.CREATED)
+    @ApiOperation(value = "Create a State from Region ID", response = State.class)
+    @ApiResponses(value = {
+            @ApiResponse(code = 201, message = "Created successfully"),
+            @ApiResponse(code = 401, message = "You are not authorized"),
+            @ApiResponse(code = 403, message = "Access is forbidden"),
+            @ApiResponse(code = 404, message = "Region not found"),
+            @ApiResponse(code = 500, message = "Something get wrong!")
+    })
+    public State createState(@PathVariable("region_id") final Integer id, @RequestBody @Valid final StateDTO dto){
+        final Region region = regionRepository.findById(id).get();
+        final State state = stateMapper.toEntity(dto);
+        state.setRegion(region);
+        return stateRepository.save(state);
+    }
+
+    @GetMapping(value = "/{region_id}/states/{state_id}/cities", produces = { V1 })
+    @ApiOperation(value = "You Crossed The Line about Reletionships", response = City.class, responseContainer = "List")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "page", dataType = "integer", paramType = "query",
                     value = "Results page you want to retrieve (0..N)"),
@@ -90,13 +118,12 @@ public class RegionResource implements API {
             @ApiImplicitParam(name = "sort", dataType = "string", paramType = "query",
                     value = "Sorting criteria in the format: property,[asc|desc]")
     })
-    public Page<City> youCrossedTheLineV1(@PathVariable("region_id") final Integer regionId,
+    public Page<City> youCrossedTheLine(@PathVariable("region_id") final Integer regionId,
             @PathVariable("state_id") final Integer stateId,final Pageable pageable){
 
         final State state = stateRepository.findById(stateId).get();
         return cityRepository.findByStateId(state.getId(), pageable);
     }
-
 
     @GetMapping(value = "/{id}")
     public Region region(@PathVariable final Integer id){
@@ -105,7 +132,8 @@ public class RegionResource implements API {
 
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
-    public Region create(@RequestBody @Valid final Region region){
+    public Region create(@RequestBody @Valid final RegionDTO dto){
+        final Region region = regionMapper.toEntity(dto);
         return regionRepository.save(region);
     }
 

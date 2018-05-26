@@ -1,4 +1,4 @@
-package com.example.springboot2rest;
+package com.example.springboot2rest.mapper;
 
 import java.util.List;
 

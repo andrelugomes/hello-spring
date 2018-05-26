@@ -35,11 +35,14 @@ dependencies {
 	compile('io.springfox:springfox-swagger2:2.8.0')
 	compile('io.springfox:springfox-swagger-ui:2.8.0')
 
-    compileOnly('org.mapstruct:mapstruct-jdk8:1.2.0.Final')
-    compileOnly('org.projectlombok:lombok:1.16.20')
+	compile('com.fasterxml.jackson.dataformat:jackson-dataformat-xml')
+	
+	compileOnly('org.mapstruct:mapstruct-jdk8:1.2.0.Final')
+	compileOnly('org.projectlombok:lombok:1.16.20')
 
-    apt('org.projectlombok:lombok:1.16.20')
-    apt('org.mapstruct:mapstruct-processor:1.2.0.Final')
+	apt('org.projectlombok:lombok:1.16.20')
+	apt('org.mapstruct:mapstruct-processor:1.2.0.Final')
+
 
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }

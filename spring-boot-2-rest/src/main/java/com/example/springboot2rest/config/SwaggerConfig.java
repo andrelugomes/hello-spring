@@ -62,7 +62,7 @@ public class SwaggerConfig {
                 .groupName("api-1.0-url")
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.example.springboot2rest.resource"))
-                .paths(PathSelectors.regex("/cities/v1.*"))
+                .paths(PathSelectors.regex("/v1.*"))
                 .build()
                 .apiInfo(new ApiInfo(
                         "Brazil REST API",
@@ -79,7 +79,7 @@ public class SwaggerConfig {
                 .groupName("api-2.0-url")
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.example.springboot2rest.resource"))
-                .paths(PathSelectors.regex("/cities/v2.*"))
+                .paths(PathSelectors.regex("/v2.*"))
                 .build()
                 .apiInfo(new ApiInfo(
                         "Brazil REST API",
