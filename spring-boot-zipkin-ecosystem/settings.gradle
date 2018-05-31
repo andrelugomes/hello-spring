@@ -1,0 +1,1 @@
+include 'spring-boot-2-publisher-rest','spring-boot-2-subscriber-rest'
