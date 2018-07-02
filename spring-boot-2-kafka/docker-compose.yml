@@ -1,0 +1,46 @@
+version: '3'
+
+services:
+
+  kafka:
+    image: confluent/kafka
+    container_name: kafka
+    ports:
+      - "9092:9092"
+    depends_on:
+      - zookeeper
+  zookeeper:
+    image: confluent/zookeeper
+    container_name: zookeeper
+    ports:
+      - "2181:2181"
+  schema-registry:
+    image: confluent/schema-registry
+    container_name: schema-registry
+    ports:
+      - "8081:8081"
+    depends_on:
+      - kafka
+      - zookeeper
+  kafka-rest:
+    image: confluent/rest-proxy
+    container_name: kafka-rest
+    ports:
+      - "8082:8082"
+    expose:
+      - "8082"
+    environment:
+      - rp_zookeeper_connect=zookeeper
+    depends_on:
+      - schema-registry
+
+  kafka-ui:
+    image: landoop/kafka-topics-ui
+    container_name: kafka-ui
+    ports:
+      - "8000:8000"
+    environment:
+      - KAFKA_REST_PROXY_URL=http://kafka-rest:8082
+      - PROXY=true
+    depends_on:
+      - kafka-rest

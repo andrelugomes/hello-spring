@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.sleuth.SpanName;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -14,6 +15,7 @@ public class Listener {
     @Autowired
     private PublisherClient client;
 
+    @SpanName("receiveMessage")
     @RabbitListener(queues = RabbitConfig.QUEUE)
     public void receiveMessage(final String message) {
         log.info("Received message: {}", message);
