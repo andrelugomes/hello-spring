@@ -29,5 +29,5 @@ dependencies {
 	compile('org.springframework.kafka:spring-kafka')
 	
 	testCompile('org.springframework.boot:spring-boot-starter-test')
-	testCompile('org.springframework.restdocs:spring-restdocs-mockmvc')
+	testCompile('org.springframework.kafka:spring-kafka-test')
 }
