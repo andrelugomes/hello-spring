@@ -4,6 +4,7 @@ import static com.example.springboot2kafka.config.Topics.TOPIC_2_PARTITIONS_1_CO
 import static com.example.springboot2kafka.config.Topics.TOPIC_2_PARTITIONS_2_CONSUMERS;
 import static com.example.springboot2kafka.config.Topics.TOPIC_REPLICATED_PARTITION_2;
 import static com.example.springboot2kafka.config.Topics.TOPIC_SET_PARTITION_2;
+import static com.example.springboot2kafka.config.Topics.TOPIC_SET_REPLICATED_PARTITION_2;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -42,5 +43,10 @@ public class KafkaAdminConfig {
     @Bean
     public NewTopic topicReplicated() {
         return new NewTopic(TOPIC_REPLICATED_PARTITION_2, 2, (short) 1);
+    }
+
+    @Bean
+    public NewTopic topicSetReplicated() {
+        return new NewTopic(TOPIC_SET_REPLICATED_PARTITION_2, 2, (short) 2);
     }
 }

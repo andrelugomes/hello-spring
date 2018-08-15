@@ -31,4 +31,9 @@ public class Producer {
         LOG.info("publishing='{}' to topic='{}'", message, topic);
         kafkaTemplate.send(topic, message);
     }
+
+    public void publish(final String topic, final int partition, final String key, final String message) {
+        LOG.info("publishing='{}' to topic='{}', key={}", message, topic, key);
+        kafkaTemplate.send(topic, key, message);
+    }
 }

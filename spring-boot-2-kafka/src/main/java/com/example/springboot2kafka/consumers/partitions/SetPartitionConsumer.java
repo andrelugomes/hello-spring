@@ -18,13 +18,17 @@ public class SetPartitionConsumer {
 
     @KafkaListener(topicPartitions = @TopicPartition(topic = TOPIC_SET_PARTITION_2, partitions = {"0"}),
             groupId = "set-g-0")
-    public void consumerOne(@Payload String message, @Header(KafkaHeaders.RECEIVED_PARTITION_ID) int partition) {
-        LOG.info("consumerOne partition={} received message={}", partition, message);
+    public void consumerOne(@Payload String message,
+            @Header(KafkaHeaders.RECEIVED_PARTITION_ID) int partition,
+            @Header(KafkaHeaders.OFFSET) String offset) {
+        LOG.info("consumerOne partition={}, offset={}, received message={}", partition, offset, message);
     }
 
     @KafkaListener(topicPartitions = @TopicPartition(topic = TOPIC_SET_PARTITION_2, partitions = {"1"}),
-            groupId = "set-g-1")
-    public void consumerTwo(@Payload String message, @Header(KafkaHeaders.RECEIVED_PARTITION_ID) int partition) {
-        LOG.info("consumerTwo partition={} received message={}", partition, message);
+            groupId = "set-g-0")
+    public void consumerTwo(@Payload String message,
+            @Header(KafkaHeaders.RECEIVED_PARTITION_ID) int partition,
+            @Header(KafkaHeaders.OFFSET) String offset) {
+        LOG.info("consumerTwo partition={}, offset={}, received message={}", partition, offset, message);
     }
 }

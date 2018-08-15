@@ -19,10 +19,17 @@ public class Triggers {
         producer.publish(message);
     }
 
-    @GetMapping("/")
-    public void string(@RequestParam(name = "partition") final int partition,
-            @RequestParam(name = "topic") final String topic,
+    @GetMapping("/topic")
+    public void string(@RequestParam(name = "topic") final String topic,
             @RequestParam(name = "message") final String message) {
-        producer.publish(topic, partition, message);
+        producer.publish(topic, message);
+    }
+
+    @GetMapping("/")
+    public void full(@RequestParam(name = "partition") final int partition,
+            @RequestParam(name = "topic") final String topic,
+            @RequestParam(name = "key") final String key,
+            @RequestParam(name = "message") final String message) {
+        producer.publish(topic, partition, key, message);
     }
 }

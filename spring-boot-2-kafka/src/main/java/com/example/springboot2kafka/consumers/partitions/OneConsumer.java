@@ -16,7 +16,9 @@ public class OneConsumer {
     private static final Logger LOG = LoggerFactory.getLogger(OneConsumer.class);
 
     @KafkaListener(topics = TOPIC_2_PARTITIONS_1_CONSUMER, groupId = "single_consumer")
-    public void consumer(@Payload String message, @Header(KafkaHeaders.RECEIVED_PARTITION_ID) int partition) {
-        LOG.info("consumer partition={} received message={}",partition,  message);
+    public void consumer(@Payload String message,
+            @Header(KafkaHeaders.RECEIVED_PARTITION_ID) int partition,
+            @Header(KafkaHeaders.OFFSET) String offset) {
+        LOG.info("consumer partition={}, offset={}, received message={}",partition, offset, message);
     }
 }

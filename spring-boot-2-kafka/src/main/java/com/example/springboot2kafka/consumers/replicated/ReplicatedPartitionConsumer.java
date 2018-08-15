@@ -19,14 +19,16 @@ public class ReplicatedPartitionConsumer {
     @KafkaListener(topicPartitions = @TopicPartition(topic = TOPIC_SET_REPLICATED_PARTITION_2, partitions = {"0"}),
             groupId = "set-repl-g-0")
     public void consumerOne(@Payload String message, @Header(KafkaHeaders.RECEIVED_PARTITION_ID) int partition,
-            @Header(KafkaHeaders.OFFSET) String offset) {
-        LOG.info("consumerOne partition={},offset={} received message={}", partition, offset, message);
+            @Header(KafkaHeaders.OFFSET) String offset,
+            @Header(KafkaHeaders.RECEIVED_MESSAGE_KEY) String key) {
+        LOG.info("consumerTwo partition={}, offset={}, key={}, message={}", partition, offset, key, message);
     }
 
     @KafkaListener(topicPartitions = @TopicPartition(topic = TOPIC_SET_REPLICATED_PARTITION_2, partitions = {"1"}),
             groupId = "set-repl-g-1")
     public void consumerTwo(@Payload String message, @Header(KafkaHeaders.RECEIVED_PARTITION_ID) int partition,
-            @Header(KafkaHeaders.OFFSET) String offset) {
-        LOG.info("consumerTwo partition={}, offset={} received message={}", partition, offset, message);
+            @Header(KafkaHeaders.OFFSET) String offset,
+            @Header(KafkaHeaders.RECEIVED_MESSAGE_KEY) String key) {
+        LOG.info("consumerTwo partition={}, offset={}, key={}, message={}", partition, offset, key, message);
     }
 }

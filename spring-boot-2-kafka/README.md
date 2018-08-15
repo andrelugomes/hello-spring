@@ -33,7 +33,10 @@ $ ./gradlew clean build bootRun
 ```bash
 $ curl http://localhost:8080/publishes/simple?message=wwwwwww
 ```
+```bash
+$ curl http://localhost:8080/publishes/topic?topic=topic.set.partitions.2&message=m2
 
+```
 ```bash
 $ curl http://localhost:8080/publishes/?partition=0&topic=topic.consumer.2.partitions.2&message=m1
 ```
@@ -44,6 +47,11 @@ $ curl http://localhost:8080/publishes/?partition=0&topic=topic.consumer.2.parti
 
 #### Topics
 
+A topic is a category or feed name to which records are published. 
+Topics in Kafka are always multi-subscriber; that is, a topic can have zero, one, or many consumers that subscribe to the data written to it.
+
+For each topic, the Kafka cluster maintains a partitioned log
+
 ```bash
 kafka_2.11-2.0.0 bin/kafka-topics.sh --describe --zookeeper localhost:2181 --topic topic.replicated.partitions.2
 
@@ -53,14 +61,47 @@ Topic:topic.replicated.partitions.2	PartitionCount:2	ReplicationFactor:2	Configs
 ```
 
 #### Partition
+
+Is an ordered, immutable sequence of records that is continually appended to?a structured commit log. 
+The records in the partitions are each assigned a sequential id number called the offset that uniquely identifies each record within the partition.
+
 #### Leader
+
+Is the node responsible for all reads and writes for the given partition. Each node will be the leader for a randomly selected portion of the partitions.
+
 #### Repicas and Replication Factor
+
+Is the list of nodes that replicate the log for this partition regardless of whether they are the leader or even if they are currently alive.
+
 #### ISR ("in-sync" replicas)
+
+Is the set of "in-sync" replicas. This is the subset of the replicas list that is currently alive and caught-up to the leader.
+
+#### Key
+
+Keys are mostly useful/necessary if you require strong order for a key and are developing something like a state machine. 
+If you require that messages with the same key (for instance, a unique id) are always seen in the correct order, 
+attaching a key to messages will ensure messages with the same key always go to the same partition in a topic. 
+Kafka guarantees order within a partition, but not across partitions in a topic, so alternatively not providing a key - which will result in round-robin distribution across partitions - will not maintain such order.
 
 ### Consumer
 
 #### Group ID
 
+```java
+@KafkaListener(topics = TOPIC, groupId = "GROUP")
+```
+
 #### Offset
 
 ### Transactions
+
+
+## links
+
++ https://kafka.apache.org/intro
++ https://docs.spring.io/spring-kafka/reference/htmlsingle/
++ https://www.confluent.io/blog/hands-free-kafka-replication-a-lesson-in-operational-simplicity/
+
++ https://www.udemy.com/apache-kafka/
+

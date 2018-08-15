@@ -16,12 +16,16 @@ public class TwoConsumersSameGroup {
     private static final Logger LOG = LoggerFactory.getLogger(TwoConsumersSameGroup.class);
 
     @KafkaListener(topics = TOPIC_2_PARTITIONS_2_CONSUMERS_SAME_GROUP, groupId = "same_group")
-    public void consumerOne(@Payload String message, @Header(KafkaHeaders.RECEIVED_PARTITION_ID) int partition) {
-        LOG.info("consumerOne partition={} received message={}", partition,  message);
+    public void consumerOne(@Payload String message,
+            @Header(KafkaHeaders.RECEIVED_PARTITION_ID) int partition,
+            @Header(KafkaHeaders.OFFSET) String offset) {
+        LOG.info("consumerOne partition={}, offset={}, received message={}", partition, offset, message);
     }
 
     @KafkaListener(topics = TOPIC_2_PARTITIONS_2_CONSUMERS_SAME_GROUP, groupId = "same_group")
-    public void consumerTwo(@Payload String message, @Header(KafkaHeaders.RECEIVED_PARTITION_ID) int partition) {
-        LOG.info("consumerTwo partition={} received message={}", partition,  message);
+    public void consumerTwo(@Payload String message,
+            @Header(KafkaHeaders.RECEIVED_PARTITION_ID) int partition,
+            @Header(KafkaHeaders.OFFSET) String offset) {
+        LOG.info("consumerTwo partition={}, offset={}, received message={}", partition, offset, message);
     }
 }
