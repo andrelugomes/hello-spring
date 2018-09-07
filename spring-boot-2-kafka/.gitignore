@@ -1,5 +1,9 @@
 .gradle
-/build/
+build
+kafka-consumer/out
+kafka-consumer/build
+kafka-producer/out
+kafka-producer/build
 !gradle/wrapper/gradle-wrapper.jar
 
 ### STS ###

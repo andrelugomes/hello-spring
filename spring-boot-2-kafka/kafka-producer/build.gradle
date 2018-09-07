@@ -1,0 +1,44 @@
+buildscript {
+    ext {
+        kotlin_version = '1.2.31'
+        springBootVersion = '2.0.4.RELEASE'
+    }
+
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlin_version}")
+        classpath("org.jetbrains.kotlin:kotlin-allopen:${kotlin_version}")
+    }
+}
+
+group 'com.example'
+version '0.0.1-SNAPSHOT'
+
+apply plugin: 'kotlin'
+apply plugin: 'eclipse'
+apply plugin: 'kotlin-spring'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    compile 'com.fasterxml.jackson.module:jackson-module-kotlin'
+    compile 'org.jetbrains.kotlin:kotlin-reflect'
+
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.springframework.kafka:spring-kafka'
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}

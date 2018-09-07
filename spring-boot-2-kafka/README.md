@@ -23,12 +23,11 @@ bin/kafka-server-start.sh config/server-1.properties
 bin/kafka-server-start.sh config/server-2.properties
 ```
 
+## Producer Application
 Start application
 ```bash
-$ ./gradlew clean build bootRun
-
+$ ./gradlew bootRun -p kafka-producer
 ```
-## Publishing
 
 ```bash
 $ curl http://localhost:8080/publishes/simple?message=wwwwwww
@@ -39,6 +38,12 @@ $ curl http://localhost:8080/publishes/topic?topic=topic.set.partitions.2&messag
 ```
 ```bash
 $ curl http://localhost:8080/publishes/?partition=0&topic=topic.consumer.2.partitions.2&message=m1
+```
+
+## Consumer Application
+Start application
+```bash
+$ ./gradlew bootRun -p kafka-consumer
 ```
 
 ## Concepts
