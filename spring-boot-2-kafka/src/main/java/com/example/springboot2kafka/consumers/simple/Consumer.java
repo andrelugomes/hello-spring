@@ -15,6 +15,7 @@ public class Consumer {
 
     @KafkaListener(topics = TOPIC_STRING)
     public void stringMessage(@Payload String message) {
+
         LOG.info("received message='{}'", message);
     }
 }

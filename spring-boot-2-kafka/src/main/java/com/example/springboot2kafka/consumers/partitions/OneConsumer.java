@@ -15,6 +15,16 @@ public class OneConsumer {
 
     private static final Logger LOG = LoggerFactory.getLogger(OneConsumer.class);
 
+    /**
+     *
+     * Round Robin over partitions 0 and 1
+     *
+     * publishing='m1' to topic='topic.consumer.1.partitions.2'
+     * consumer partition=0, offset=11, received message=m1
+     * 
+     * publishing='m2' to topic='topic.consumer.1.partitions.2'
+     * consumer partition=1, offset=1, received message=m2
+     */
     @KafkaListener(topics = TOPIC_2_PARTITIONS_1_CONSUMER, groupId = "single_consumer")
     public void consumer(@Payload String message,
             @Header(KafkaHeaders.RECEIVED_PARTITION_ID) int partition,

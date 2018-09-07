@@ -20,6 +20,12 @@ public class SimpleProducerConfig {
         props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092,localhost:9093,localhost:9094");
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+        /**
+         * acks=0 -> Fire and Forgot, without confirmation
+         * acks=1 -> Leader needs to confirm
+         * acks=all -> Leader and all replicas needs to confirm
+         */
+        props.put(ProducerConfig.ACKS_CONFIG, "all");
         return props;
     }
 

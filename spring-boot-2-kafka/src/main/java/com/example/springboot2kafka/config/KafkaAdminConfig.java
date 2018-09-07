@@ -2,6 +2,7 @@ package com.example.springboot2kafka.config;
 
 import static com.example.springboot2kafka.config.Topics.TOPIC_2_PARTITIONS_1_CONSUMER;
 import static com.example.springboot2kafka.config.Topics.TOPIC_2_PARTITIONS_2_CONSUMERS;
+import static com.example.springboot2kafka.config.Topics.TOPIC_2_PARTITIONS_2_CONSUMERS_SAME_GROUP;
 import static com.example.springboot2kafka.config.Topics.TOPIC_REPLICATED_PARTITION_2;
 import static com.example.springboot2kafka.config.Topics.TOPIC_SET_PARTITION_2;
 import static com.example.springboot2kafka.config.Topics.TOPIC_SET_REPLICATED_PARTITION_2;
@@ -26,17 +27,22 @@ public class KafkaAdminConfig {
     }
 
     @Bean
-    public NewTopic topicWithTwoPartitionsOneConsumer() {
-        return new NewTopic(TOPIC_2_PARTITIONS_1_CONSUMER, 2, (short) 0);
+    public NewTopic topicWith2Partitions1Consumer() {
+         return new NewTopic(TOPIC_2_PARTITIONS_1_CONSUMER, 2, (short) 0);
     }
 
     @Bean
-    public NewTopic topicWithTwoPartitions2Consumers() {
+    public NewTopic topicWith2Partitions2Consumers() {
         return new NewTopic(TOPIC_2_PARTITIONS_2_CONSUMERS, 2, (short) 0);
     }
 
     @Bean
-    public NewTopic topicTwoPartitions2Set() {
+    public NewTopic sameGroupConsumers(){
+        return new NewTopic(TOPIC_2_PARTITIONS_2_CONSUMERS_SAME_GROUP, 2, (short) 0);
+    }
+
+    @Bean
+    public NewTopic topic2Partitions2Set() {
         return new NewTopic(TOPIC_SET_PARTITION_2, 2, (short) 0);
     }
 

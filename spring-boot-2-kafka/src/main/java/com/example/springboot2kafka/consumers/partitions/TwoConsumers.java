@@ -10,6 +10,15 @@ import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Service;
 
+/**
+ * publishing='m2' to topic='topic.consumer.2.partitions.2'
+ * consumerTwo partition=0, offset=7, received message=m2
+ * consumerOne partition=0, offset=7, received message=m2
+ * 
+ * publishing='m3' to topic='topic.consumer.2.partitions.2'
+ * consumerOne partition=1, offset=1, received message=m3
+ * consumerTwo partition=1, offset=1, received message=m3
+ */
 @Service
 public class TwoConsumers {
 

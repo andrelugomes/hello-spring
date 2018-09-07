@@ -62,7 +62,7 @@ Topic:topic.replicated.partitions.2	PartitionCount:2	ReplicationFactor:2	Configs
 
 #### Partition
 
-Is an ordered, immutable sequence of records that is continually appended to?a structured commit log. 
+Is an ordered, immutable sequence of records that is continually appended to a structured commit log. 
 The records in the partitions are each assigned a sequential id number called the offset that uniquely identifies each record within the partition.
 
 #### Leader
@@ -102,6 +102,7 @@ Kafka guarantees order within a partition, but not across partitions in a topic,
 + https://kafka.apache.org/intro
 + https://docs.spring.io/spring-kafka/reference/htmlsingle/
 + https://www.confluent.io/blog/hands-free-kafka-replication-a-lesson-in-operational-simplicity/
++ http://cloudurable.com/blog/kafka-tutorial-kafka-producer-advanced-java-examples/index.html
 
 + https://www.udemy.com/apache-kafka/
 

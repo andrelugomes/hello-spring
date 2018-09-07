@@ -25,7 +25,7 @@ public class SetPartitionConsumer {
     }
 
     @KafkaListener(topicPartitions = @TopicPartition(topic = TOPIC_SET_PARTITION_2, partitions = {"1"}),
-            groupId = "set-g-0")
+            groupId = "set-g-1")
     public void consumerTwo(@Payload String message,
             @Header(KafkaHeaders.RECEIVED_PARTITION_ID) int partition,
             @Header(KafkaHeaders.OFFSET) String offset) {
