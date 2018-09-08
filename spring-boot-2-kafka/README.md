@@ -86,8 +86,14 @@ Is the set of "in-sync" replicas. This is the subset of the replicas list that i
 
 Keys are mostly useful/necessary if you require strong order for a key and are developing something like a state machine. 
 If you require that messages with the same key (for instance, a unique id) are always seen in the correct order, 
-attaching a key to messages will ensure messages with the same key always go to the same partition in a topic. 
+attaching a key to messages will ensure **messages with the same key always go to the same partition in a topic**. 
 Kafka guarantees order within a partition, but not across partitions in a topic, so alternatively not providing a key - which will result in round-robin distribution across partitions - will not maintain such order.
+
+Chosing Key and Partition
+```bash
+$ curl http://localhost:8081/publishes/key?topic=topic.consumer.2.partitions.2.samegroup&message=m3&partition=1&key=abc_123
+
+```
 
 ### Consumer
 

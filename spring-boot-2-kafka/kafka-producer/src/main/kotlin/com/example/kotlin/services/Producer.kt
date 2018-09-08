@@ -14,10 +14,10 @@ class Producer(var kafkaTemplate: KafkaTemplate<String, String>) {
         kafkaTemplate.send(topic, message)
     }
 
-    fun publish(topic: String, message: String, partition:Int, key: String) {
-        log.info("publishing message=$message on topic=$topic")
+    fun publish(topic: String, message: String, partition:Int? = null, key: String? = null) {
+        log.info("publishing message=$message on topic=$topic, with partition=$partition and key=$key")
 
-        kafkaTemplate.send(topic, message)
+        kafkaTemplate.send(topic, partition, key, message)
     }
 
 }

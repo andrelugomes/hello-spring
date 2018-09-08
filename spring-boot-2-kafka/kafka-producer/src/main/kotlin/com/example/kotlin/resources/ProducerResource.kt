@@ -23,9 +23,9 @@ class ProducerResource {
 
     @GetMapping("/key")
     fun fullProducer(
-        @RequestParam(name = "partition") partition: Int,
+        @RequestParam(name = "partition", required = false) partition: Int?,
         @RequestParam(name = "topic") topic: String,
-        @RequestParam(name = "key") key: String,
+        @RequestParam(name = "key", required = false) key: String?,
         @RequestParam(name = "message") message: String) {
         producer.publish(topic, message, partition, key)
     }
