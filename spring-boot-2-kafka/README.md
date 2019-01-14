@@ -97,6 +97,10 @@ $ curl http://localhost:8081/publishes/key?topic=topic.consumer.2.partitions.2.s
 
 ### Consumer
 
+Group Coordinator ans Consumer Coodinator knows haw to distribute consumers on partitions.
+
+Consumer may be inactive if has more than partitions number
+
 #### Group ID
 
 ```java

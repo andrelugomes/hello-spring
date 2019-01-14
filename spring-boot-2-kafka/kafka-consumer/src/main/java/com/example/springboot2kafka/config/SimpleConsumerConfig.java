@@ -27,6 +27,7 @@ public class SimpleConsumerConfig {
         props.put(ConsumerConfig.GROUP_ID_CONFIG, "simple_group");
         props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");  //mais antigo
         //props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "latest");  //mais recente
+        props.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, "true");
 
         return props;
     }
