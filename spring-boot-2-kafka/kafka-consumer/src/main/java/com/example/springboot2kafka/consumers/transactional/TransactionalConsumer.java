@@ -7,13 +7,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class TransactionalConsumer {
 
     private static final Logger LOG = LoggerFactory.getLogger(TransactionalConsumer.class);
 
-    @Tra
+    @Transactional
     @KafkaListener(topics = TOPIC_STRING)
     public void stringMessage(@Payload String message) {
 

@@ -9,26 +9,28 @@ import org.springframework.kafka.core.KafkaTemplate
 import org.springframework.kafka.core.ProducerFactory
 
 @Configuration
-class ProducerConfig
+class ProducerConfig {
 
-/**
- * acks=0 -> Fire and Forgot, without confirmation
- * acks=1 -> Leader needs to confirm
- * acks=all -> Leader and all replicas needs to confirm
- */
+    /**
+     * acks=0 -> Fire and Forgot, without confirmation
+     * acks=1 -> Leader needs to confirm
+     * acks=all -> Leader and all replicas needs to confirm
+     */
 
-@Bean
-fun producerFactory(): ProducerFactory<String, Any> {
-    return DefaultKafkaProducerFactory(mapOf(
-        BOOTSTRAP_SERVERS_CONFIG to "localhost:9092,localhost:9093,localhost:9094",
-        KEY_SERIALIZER_CLASS_CONFIG to StringSerializer::class.java,
-        VALUE_SERIALIZER_CLASS_CONFIG to StringSerializer::class.java,
-        ACKS_CONFIG to "all"))
+    @Bean
+    fun producerFactory(): ProducerFactory<String, String> {
+        return DefaultKafkaProducerFactory(
+            mapOf(
+                BOOTSTRAP_SERVERS_CONFIG to "localhost:9092,localhost:9093,localhost:9094",
+                KEY_SERIALIZER_CLASS_CONFIG to StringSerializer::class.java,
+                VALUE_SERIALIZER_CLASS_CONFIG to StringSerializer::class.java,
+                ACKS_CONFIG to "all"
+            )
+        )
+    }
+
+    @Bean
+    fun kafkaTemplate(): KafkaTemplate<String, String> {
+        return KafkaTemplate(producerFactory())
+    }
 }
-
-@Bean
-fun kafkaTemplate(): KafkaTemplate<String, Any> {
-    return KafkaTemplate(producerFactory())
-}
-
-

@@ -15,11 +15,11 @@ interface TweetsService {
     fun findById(id: Long): Mono<Tweet>
     fun findById(id: Long, fields: Array<String>): Mono<Tweet>
     fun findFieldsById(id: Long, fields: Array<String>): Mono<Tweet>
+    fun findByAuthor(author: String): Flux<Tweet>
 }
 
 @Service
 class TweetsServiceImpl(@Autowired var repository: TweetsRepository) : TweetsService {
-    
     override fun save(tweet: Tweet) = repository.save(tweet)
 
     override fun findAll() = repository.findAll()
@@ -31,4 +31,8 @@ class TweetsServiceImpl(@Autowired var repository: TweetsRepository) : TweetsSer
     }
 
     override fun findFieldsById(id: Long, fields: Array<String>) = repository.findFieldsById(id, fields)
+
+    override fun findByAuthor(author: String): Flux<Tweet> {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 }
