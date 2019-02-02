@@ -1,6 +1,8 @@
 rootProject.name = 'spring-boot-2-kafka'
 include 'kafka-producer'
 include 'kafka-producer-avro-v1'
+include 'kafka-producer-avro-v2'
 include 'kafka-consumer'
 include 'kafka-consumer-avro-v1'
+include 'kafka-consumer-avro-v2'
 

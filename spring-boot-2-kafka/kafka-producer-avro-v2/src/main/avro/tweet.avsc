@@ -1,0 +1,17 @@
+{
+     "type": "record",
+     "namespace": "com.example.schema.tweet",
+     "name": "Tweet",
+     "version": 2,
+     "fields": [
+       { "name": "id", "type": "long", "doc": "Tweet ID" },
+       { "name": "idStr", "type": ["null","string"], "default": null, "doc": "Tweet ID as string" },
+       { "name": "text", "type": "string", "doc": "Tweet content boby" },
+       {
+        "name": "fromUser",
+        "type": ["null","string"],
+        "default": null,
+        "doc": "New field - Tweet from user"
+       }
+    ]
+}

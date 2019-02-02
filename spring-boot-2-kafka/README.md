@@ -46,6 +46,11 @@ Start application
 $ ./gradlew bootRun -p kafka-consumer
 ```
 
+
+## Avro and Schema Registry
+
+[AVRO-SCHEMA](AVRO-SCHEMA.md)
+
 ## Concepts
 
 ### Producer
