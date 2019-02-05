@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
+import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono
 import javax.validation.Valid
 
@@ -38,9 +39,13 @@ class TweetsResource(@Autowired var service: TweetsService) {
             .defaultIfEmpty(ResponseEntity.notFound().build())
     }
 
-    @GetMapping("/{id}", params = ["non-mongo"])
+    @GetMapping("/{id}", params = ["fields"])
     fun findByIdFieldSelection(@PathVariable id: Long,
-                 @RequestParam(required = false, defaultValue = "") fields: Array<String>
+                                @RequestParam(
+                                    required = false,
+                                    defaultValue = "",
+                                    name = "fields"
+                                ) fields: Array<String>
     ): Mono<ResponseEntity<Tweet>> {
 
         return service.findById(id, fields)
@@ -48,14 +53,33 @@ class TweetsResource(@Autowired var service: TweetsService) {
             .defaultIfEmpty(ResponseEntity.notFound().build())
     }
 
-    @GetMapping("/{id}", params = ["mongo"])
+    @GetMapping("/{id}", params = ["mongo-fields"])
     fun findByIdMongoFieldSelection(@PathVariable id: Long,
-                               @RequestParam(required = false, defaultValue = "") fields: Array<String>
+                                    @RequestParam(
+                                        required = true,
+                                        defaultValue = "",
+                                        name = "mongo-fields"
+                                    ) fields: Array<String>
     ): Mono<ResponseEntity<Tweet>> {
 
         return service.findFieldsById(id, fields)
             .map {tweet -> ResponseEntity.ok(tweet) }
             .defaultIfEmpty(ResponseEntity.notFound().build())
+    }
+
+    @GetMapping(params = ["mongo-fields", "user"])
+    fun findAllMongoFieldSelection(@RequestParam(
+                                        required = false,
+                                        defaultValue = "id",
+                                        name = "mongo-fields"
+                                    ) fields: Array<String>,
+                                   @RequestParam(
+                                       required = false,
+                                       defaultValue = ""
+                                   ) user: String
+    ): Flux<Tweet> {
+
+        return service.findAllSelection(user, fields)
     }
 }
 

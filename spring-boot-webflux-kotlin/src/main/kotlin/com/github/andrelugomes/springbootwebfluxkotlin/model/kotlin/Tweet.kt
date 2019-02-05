@@ -15,5 +15,10 @@ data class Tweet (
     @Id val id : Long?,
     @Indexed(unique = true) @JsonProperty("id_str") @Field("id_str") val index : String?,
     @NotBlank @Size(max = 140) val text : String?,
-    @JsonProperty("created_at") @Field("created_at") val createdAt : String?
+    @JsonProperty("created_at") @Field("created_at") val createdAt : String?,
+    var user : User?
+)
+
+class User(
+    @JsonProperty("screen_name") @Field("screen_name") val screenName: String?
 )

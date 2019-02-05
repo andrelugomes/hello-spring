@@ -15,7 +15,7 @@ interface TweetsService {
     fun findById(id: Long): Mono<Tweet>
     fun findById(id: Long, fields: Array<String>): Mono<Tweet>
     fun findFieldsById(id: Long, fields: Array<String>): Mono<Tweet>
-    fun findByAuthor(author: String): Flux<Tweet>
+    fun findAllSelection(user: String, fields: Array<String>): Flux<Tweet>
 }
 
 @Service
@@ -32,7 +32,5 @@ class TweetsServiceImpl(@Autowired var repository: TweetsRepository) : TweetsSer
 
     override fun findFieldsById(id: Long, fields: Array<String>) = repository.findFieldsById(id, fields)
 
-    override fun findByAuthor(author: String): Flux<Tweet> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun findAllSelection(user: String, fields: Array<String>): Flux<Tweet> = repository.findFieldsByUser(user, fields)
 }

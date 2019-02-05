@@ -6,10 +6,12 @@ import org.springframework.data.mongodb.core.MongoTemplate
 import org.springframework.data.mongodb.core.query.Criteria
 import org.springframework.data.mongodb.core.query.Query
 import org.springframework.stereotype.Repository
+import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono
 
 interface CustomMongoRepository {
     fun findFieldsById(id: Long, fields: Array<String>): Mono<Tweet>
+    fun findFieldsByUser(user: String, fields: Array<String>): Flux<Tweet>
 }
 
 @Repository
@@ -22,5 +24,15 @@ class CustomMongoRepositoryImpl(@Autowired val mongoTemplate: MongoTemplate) : C
         fields.forEach { query.fields().include(it) }
 
         return Mono.justOrEmpty(mongoTemplate.findOne(query, Tweet::class.java))
+    }
+
+    override fun findFieldsByUser(user: String, fields: Array<String>): Flux<Tweet> {
+        val query = Query(Criteria.where("user.screen_name").`is`(user))
+
+        fields.forEach { query.fields().include(it) }
+
+        val tweets = mongoTemplate.find(query, Tweet::class.java)
+
+        return Flux.fromIterable(tweets)
     }
 }
