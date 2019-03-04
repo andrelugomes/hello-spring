@@ -1,0 +1,18 @@
+plugins {
+    id 'java'
+}
+
+group 'com.example.springboot'
+version '0.0.1-SNAPSHOT'
+
+sourceCompatibility = '10'
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter:2.1.3.RELEASE'
+    implementation 'com.example.configs:my-configs-spring-boot-starter:0.0.1-SNAPSHOT'
+}

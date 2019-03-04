@@ -1,0 +1,9 @@
+pluginManagement {
+	repositories {
+		gradlePluginPortal()
+	}
+}
+rootProject.name = 'spring-boot-magic'
+include 'my-configs-spring-boot-starter'
+include 'spring-boot-conditional'
+

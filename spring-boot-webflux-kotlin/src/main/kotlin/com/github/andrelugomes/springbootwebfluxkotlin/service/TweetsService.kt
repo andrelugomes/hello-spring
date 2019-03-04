@@ -3,7 +3,6 @@ package com.github.andrelugomes.springbootwebfluxkotlin.service
 import com.github.andrelugomes.springbootwebfluxkotlin.extentions.selection
 import com.github.andrelugomes.springbootwebfluxkotlin.model.kotlin.Tweet
 import com.github.andrelugomes.springbootwebfluxkotlin.repository.TweetsRepository
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono
@@ -19,7 +18,7 @@ interface TweetsService {
 }
 
 @Service
-class TweetsServiceImpl(@Autowired var repository: TweetsRepository) : TweetsService {
+class TweetsServiceImpl(var repository: TweetsRepository) : TweetsService {
     override fun save(tweet: Tweet) = repository.save(tweet)
 
     override fun findAll() = repository.findAll()

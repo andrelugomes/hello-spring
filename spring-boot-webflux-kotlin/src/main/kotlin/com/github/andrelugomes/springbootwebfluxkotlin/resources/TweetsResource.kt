@@ -2,7 +2,6 @@ package com.github.andrelugomes.springbootwebfluxkotlin.resources
 
 import com.github.andrelugomes.springbootwebfluxkotlin.model.kotlin.Tweet
 import com.github.andrelugomes.springbootwebfluxkotlin.service.TweetsService
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -12,7 +11,7 @@ import javax.validation.Valid
 
 @RestController
 @RequestMapping("/tweets")
-class TweetsResource(@Autowired var service: TweetsService) {
+class TweetsResource(var service: TweetsService) {
 
     /*Block Body
     @PostMapping
