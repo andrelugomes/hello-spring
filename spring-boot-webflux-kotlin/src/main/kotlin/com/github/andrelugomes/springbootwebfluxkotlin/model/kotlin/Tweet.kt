@@ -19,6 +19,6 @@ data class Tweet (
     var user : User?
 )
 
-class User(
+data class User(
     @JsonProperty("screen_name") @Field("screen_name") val screenName: String?
 )

@@ -1,5 +1,7 @@
 package com.example.configs;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnResource;
 import org.springframework.context.annotation.Bean;
@@ -14,9 +16,11 @@ import org.springframework.core.env.Environment;
 @ConditionalOnResource(resources = "classpath:my-configs.properties")
 public class MyConfigsAutoConfiguration {
 
+    private static final Logger log = LoggerFactory.getLogger(MyConfigsAutoConfiguration.class);
+
     @Bean
     public MyConfigs myConfigs(Environment env) {
-        System.out.println("::::: MY CONFIGS Auto Configuration :::::");
+        log.info("::::: MY CONFIGS Auto Configuration :::::");
 
         return new MyConfigs(
                 env.getProperty("my-configs.one"),

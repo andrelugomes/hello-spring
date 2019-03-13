@@ -13,6 +13,10 @@ the Publisher interface provided by Reactive Streams. Flux is used to represent
 a stream of 0..N elements and Mono is used to represent a stream of 0..1 element.
 ```
 
+## Flux
+
+https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html
+
 ## MongoDB
 
 ```bash
