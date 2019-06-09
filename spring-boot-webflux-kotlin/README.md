@@ -17,6 +17,11 @@ a stream of 0..N elements and Mono is used to represent a stream of 0..1 element
 
 https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html
 
+## Mono
+
+https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Mono.html
+
+
 ## MongoDB
 
 ```bash

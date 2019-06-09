@@ -40,11 +40,7 @@ class TweetsResource(var service: TweetsService) {
 
     @GetMapping("/{id}", params = ["fields"])
     fun findByIdFieldSelection(@PathVariable id: Long,
-                                @RequestParam(
-                                    required = false,
-                                    defaultValue = "",
-                                    name = "fields"
-                                ) fields: Array<String>
+                               @RequestParam(required = false, defaultValue = "", name = "fields") fields: Array<String>
     ): Mono<ResponseEntity<Tweet>> {
 
         return service.findById(id, fields)
@@ -54,11 +50,7 @@ class TweetsResource(var service: TweetsService) {
 
     @GetMapping("/{id}", params = ["mongo-fields"])
     fun findByIdMongoFieldSelection(@PathVariable id: Long,
-                                    @RequestParam(
-                                        required = true,
-                                        defaultValue = "",
-                                        name = "mongo-fields"
-                                    ) fields: Array<String>
+                                    @RequestParam(required = true, defaultValue = "", name = "mongo-fields") fields: Array<String>
     ): Mono<ResponseEntity<Tweet>> {
 
         return service.findFieldsById(id, fields)
@@ -67,15 +59,8 @@ class TweetsResource(var service: TweetsService) {
     }
 
     @GetMapping(params = ["mongo-fields", "user"])
-    fun findAllMongoFieldSelection(@RequestParam(
-                                        required = false,
-                                        defaultValue = "id",
-                                        name = "mongo-fields"
-                                    ) fields: Array<String>,
-                                   @RequestParam(
-                                       required = false,
-                                       defaultValue = ""
-                                   ) user: String
+    fun findAllMongoFieldSelection(@RequestParam(required = false, defaultValue = "id", name = "mongo-fields") fields: Array<String>,
+                                   @RequestParam(required = false, defaultValue = "") user: String
     ): Flux<Tweet> {
 
         return service.findAllSelection(user, fields)

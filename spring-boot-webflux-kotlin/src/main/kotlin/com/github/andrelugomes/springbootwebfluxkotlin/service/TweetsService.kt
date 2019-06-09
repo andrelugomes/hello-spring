@@ -19,6 +19,7 @@ interface TweetsService {
 
 @Service
 class TweetsServiceImpl(var repository: TweetsRepository) : TweetsService {
+
     override fun save(tweet: Tweet) = repository.save(tweet)
 
     override fun findAll() = repository.findAll()

@@ -3,10 +3,14 @@ package com.github.andrelugomes.springbootwebfluxkotlin
 import com.github.andrelugomes.springbootwebfluxkotlin.model.kotlin.SortedTweet
 import com.github.andrelugomes.springbootwebfluxkotlin.model.kotlin.Tweet
 import com.github.andrelugomes.springbootwebfluxkotlin.model.kotlin.User
+import com.github.andrelugomes.springbootwebfluxkotlin.subscriber.MyConsumer
+import com.github.andrelugomes.springbootwebfluxkotlin.subscriber.MySubscriber
+import com.github.andrelugomes.springbootwebfluxkotlin.subscriber.TweetSubscriber
 import org.assertj.core.api.Assertions
 import org.junit.Before
 import org.junit.Test
 import reactor.core.publisher.Flux
+
 
 class FluxTest {
 
@@ -36,12 +40,53 @@ class FluxTest {
 
     @Test
     fun `Flux subscribe`() {
+        var elements : MutableSet<Int> = mutableSetOf()
+
+        Flux.just(1, 2, 3, 4)
+            .log()
+            .subscribe { elements.add(it) }
+
+        Assertions.assertThat(elements).containsExactly(1, 2, 3, 4)
+    }
+
+    @Test
+    fun `Flux subscribe disposable`() {
 
         val flux = Flux.just(tweet1,tweet2)
 
-        flux.log().subscribe {
+        var disposable = flux.log().subscribe {
             Assertions.assertThat(it).isExactlyInstanceOf(Tweet::class.java)
         }
+
+        Assertions.assertThat(disposable.isDisposed).isTrue()
+    }
+
+    @Test
+    fun `Flux multiples subscribe with Consumers`() {
+
+        val flux = Flux.just(tweet1,tweet2)
+
+        var consumer: (Tweet) -> Unit = {
+            Assertions.assertThat(it.id).isGreaterThan(0)
+        }
+
+        flux.log().subscribe(consumer) //interface Consumer
+
+        flux.log().subscribe(MySubscriber().subscribe()) //interface Consumer
+
+        flux.log().subscribe(MyConsumer()) //interface Consumer
+
+        flux.log().subscribe {
+            Assertions.assertThat(it).isExactlyInstanceOf(Tweet::class.java)
+        } //interface Consumer
+    }
+
+
+    @Test
+    fun `Flux base subscriber`() {
+
+       Flux.just(tweet1,tweet2).subscribeWith(TweetSubscriber())
+        
     }
 
     @Test
@@ -75,20 +120,6 @@ class FluxTest {
     }
 
     @Test
-    fun `Flux reduce nullable ids from tweets`() {
-
-        val flux = Flux.just(tweet1,tweet2)
-
-        val ids = flux.map {it.id}
-
-        val result = ids.reduce { t: Long?, u: Long? -> u?.let { t?.plus(it) } }
-
-        result.subscribe {
-            Assertions.assertThat(it).isEqualTo(tweet1.id?.plus(tweet2.id!!))
-        }
-    }
-
-    @Test
     fun `Flux simple reduce`() {
 
         val ids = Flux.just(1L,2L)
@@ -111,6 +142,32 @@ class FluxTest {
 
         result.subscribe {
             Assertions.assertThat(it).isEqualTo(3L)
+        }
+    }
+
+    @Test
+    fun `Flux reduce nullable ids from tweets`() {
+
+        val flux = Flux.just(tweet1,tweet2)
+
+        val ids = flux.map {it.id}
+
+        //val result = ids.reduce { t, u -> t + u}
+
+        //val result = ids.reduce { t, u -> t!! + u!! }
+
+        //val result = ids.reduce { t, u -> t!!.plus(u!!) }
+
+        //val result = ids.reduce { t: Long?, u: Long? -> t!!.plus(u!!) }
+
+        //val result = ids.reduce { t, u -> u?.let { t?.plus(it) } }
+
+        //val result = ids.reduce { t, u -> u.let { t!!.plus(it!!) } }
+
+        val result = ids.reduce { t, u -> u!!.let { t!!.plus(it) } }
+
+        result.subscribe {
+            Assertions.assertThat(it).isEqualTo(tweet1.id?.plus(tweet2.id!!))
         }
     }
 }

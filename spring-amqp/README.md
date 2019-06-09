@@ -8,6 +8,20 @@ docker run -d --name rabbitmq -p 15672:15672 -p 5671:5671 -p 5672:5672 -e RABBIT
 
 ## Amqp
 
-- Queue
-- TopicExchange
-- Binding
+### Exchange
+
++ https://medium.com/faun/different-types-of-rabbitmq-exchanges-9fefd740505d
+
+If no binding is set. Default behavior is:
+
+```text
+Default exchange
+The default exchange is implicitly bound to every queue, with a routing key equal to the queue name. It is not possible to explicitly bind to, or unbind from the default exchange. It also cannot be deleted.
+```
+
++ Direct
++ Fanout
++ topic
++ Headers
+
+### Binding
