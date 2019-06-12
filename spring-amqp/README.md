@@ -8,6 +8,29 @@ docker run -d --name rabbitmq -p 15672:15672 -p 5671:5671 -p 5672:5672 -e RABBIT
 
 ## Amqp
 
+### Retry
+
+If no RabbitTemplate bean is defined, you can use default retry behavior turned on:
+
+```text
+spring.rabbitmq.template.retry.enabled=true
+spring.rabbitmq.template.retry.initial-interval=2000ms
+spring.rabbitmq.template.retry.max-attempts=5
+spring.rabbitmq.template.retry.max-interval=30000ms
+spring.rabbitmq.template.retry.multiplier=
+```
+If a RabbitTemplate bean is overrided. You need to define a bean for RetryTemplate.
+
+
+### Queue
++ https://docs.spring.io/spring-amqp/api/org/springframework/amqp/core/Queue.html
+
+```text
+isAutoDelete() = True if the server should delete the queue when it is no longer in use (the last consumer is cancelled).
+isDurable() = A durable queue will survive a server restart.
+isExclusive() = True if the server should only send messages to the declarer's connection.
+```
+
 ### Exchange
 
 + https://medium.com/faun/different-types-of-rabbitmq-exchanges-9fefd740505d

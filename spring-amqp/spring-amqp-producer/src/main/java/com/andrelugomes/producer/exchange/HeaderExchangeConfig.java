@@ -1,4 +1,4 @@
-package com.andrelugomes.producer;
+package com.andrelugomes.producer.exchange;
 
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;

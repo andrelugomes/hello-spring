@@ -8,6 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.retry.RecoveryCallback;
+import org.springframework.retry.RetryCallback;
+import org.springframework.retry.RetryContext;
+import org.springframework.retry.support.RetryTemplate;
 
 @SpringBootApplication
 public class ProducerApplication implements CommandLineRunner {
@@ -15,20 +19,22 @@ public class ProducerApplication implements CommandLineRunner {
 	@Autowired
 	RabbitTemplate rabbitTemplate;
 
+	@Autowired
+	RetryTemplate retryTemplate;
+
 	public static void main(String[] args) {
 		SpringApplication.run(ProducerApplication.class, args);
 	}
 
 	@Override
 	public void run(final String... args) {
-		/*rabbitTemplate.convertAndSend("amq.topic", "ROUTING.KEY", "message");
-		rabbitTemplate.convertAndSend("amq.fanout", "ROUTING.KEY", "message");
-		rabbitTemplate.convertAndSend("amq.headers", "ROUTING.KEY", "message");
-		rabbitTemplate.convertAndSend("amq.direct", "ROUTING.KEY", "message");*/
-
+		//rabbitTemplate.convertAndSend("amq.topic", "ROUTING.KEY", "message");
+		//rabbitTemplate.convertAndSend("amq.fanout", "ROUTING.KEY", "message");
+		//rabbitTemplate.convertAndSend("amq.headers", "ROUTING.KEY", "message");
+		//rabbitTemplate.convertAndSend("amq.direct", "ROUTING.KEY", "message");
 
 		//Default exchange
-		//rabbitTemplate.convertAndSend("default-ex-queue-1","teste");
+		//rabbitTemplate.convertAndSend("default-ex-queue-1", "teste");
 
 		//Direct exchange
 		//rabbitTemplate.convertAndSend("direct-exchange","direct-1","teste");
@@ -54,7 +60,55 @@ public class ProducerApplication implements CommandLineRunner {
 						.andProperties(properties)
 						.build();
 
-		rabbitTemplate.send("headers-exchange",null, message1);
-		rabbitTemplate.send("headers-exchange",null, message2);
+		//rabbitTemplate.send("headers-exchange",null, message1);
+		//rabbitTemplate.send("headers-exchange",null, message2);
+
+		try {
+			
+			retryTemplate.execute(
+							new RetryCallback<Object, Exception>() {
+
+								@Override
+								public Object doWithRetry(RetryContext context) {
+									context.setAttribute("message", message1);
+
+									System.out.println("RETRY=" +context.getRetryCount());
+									rabbitTemplate.convertAndSend("headers-exchange", null, message1);
+									return message1;
+								}
+							}, new RecoveryCallback<Object>() {
+
+								@Override
+								public Object recover(RetryContext context) {
+									Object message = context.getAttribute("message");
+									Throwable t = context.getLastThrowable();
+									System.out.println("ERROR=" +t.getMessage());
+
+									return null;
+								}
+							});
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+
+		try {
+			retryTemplate.execute((RetryCallback<Object, Exception>) context -> {
+								context.setAttribute("message", message1);
+								System.out.println("RETRY=" +context.getRetryCount());
+								rabbitTemplate.convertAndSend("headers-exchange", null, message1);
+								return message1;
+							}, context -> {
+								Object message = context.getAttribute("message");
+								Throwable t = context.getLastThrowable();
+								System.out.println("ERROR=" +t.getMessage());
+
+								return null;
+							}
+			);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	
 	}
 }
