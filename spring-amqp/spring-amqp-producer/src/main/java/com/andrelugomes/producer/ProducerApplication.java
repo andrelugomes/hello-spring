@@ -1,16 +1,10 @@
 package com.andrelugomes.producer;
 
-import org.springframework.amqp.core.Message;
-import org.springframework.amqp.core.MessageBuilder;
-import org.springframework.amqp.core.MessageProperties;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.retry.RecoveryCallback;
-import org.springframework.retry.RetryCallback;
-import org.springframework.retry.RetryContext;
 import org.springframework.retry.support.RetryTemplate;
 
 @SpringBootApplication
@@ -47,23 +41,23 @@ public class ProducerApplication implements CommandLineRunner {
 		//rabbitTemplate.convertAndSend("topic-exchange","KEY.2","teste2");
 
 		//Header exchange - Header property
-		final Message message1 = MessageBuilder
+		/*final Message message1 = MessageBuilder
 						.withBody("teste1".getBytes())
 						.setHeader("ARG", "1")
 						.setHeader("ANOTHER", "HEADER")
-						.build();
+						.build();*/
 
-		final MessageProperties properties = new MessageProperties();
+		/*final MessageProperties properties = new MessageProperties();
 		properties.setHeader("ARG", "2");
 		final Message message2 = MessageBuilder
 						.withBody("teste2".getBytes())
 						.andProperties(properties)
-						.build();
+						.build();*/
 
 		//rabbitTemplate.send("headers-exchange",null, message1);
 		//rabbitTemplate.send("headers-exchange",null, message2);
 
-		try {
+		/*try {
 			
 			retryTemplate.execute(
 							new RetryCallback<Object, Exception>() {
@@ -89,10 +83,10 @@ public class ProducerApplication implements CommandLineRunner {
 							});
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
+		}*/
 
 
-		try {
+		/*try {
 			retryTemplate.execute((RetryCallback<Object, Exception>) context -> {
 								context.setAttribute("message", message1);
 								System.out.println("RETRY=" +context.getRetryCount());
@@ -108,7 +102,7 @@ public class ProducerApplication implements CommandLineRunner {
 			);
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
+		}*/
 	
 	}
 }
