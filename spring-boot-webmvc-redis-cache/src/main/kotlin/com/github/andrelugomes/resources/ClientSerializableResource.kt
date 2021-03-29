@@ -1,6 +1,5 @@
 package com.github.andrelugomes.resources
 
-import com.github.andrelugomes.model.Client
 import com.github.andrelugomes.model.ClientSerializable
 import com.github.andrelugomes.services.ClientService
 import org.springframework.http.ResponseEntity

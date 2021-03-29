@@ -1,9 +1,15 @@
 package com.github.andrelugomes
 
 import com.alibaba.fastjson.support.spring.FastJsonRedisSerializer
+import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.databind.jsontype.BasicPolymorphicTypeValidator
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
+import com.fasterxml.jackson.module.kotlin.KotlinModule
+import com.github.andrelugomes.custom.CitiesPageKeyGenerator
 import com.github.andrelugomes.model.User
 import org.springframework.cache.CacheManager
 import org.springframework.cache.annotation.EnableCaching
+import org.springframework.cache.interceptor.KeyGenerator
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.Primary
@@ -12,6 +18,9 @@ import org.springframework.data.redis.cache.RedisCacheManager
 import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory
 import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer
 import org.springframework.data.redis.serializer.RedisSerializationContext
+import org.springframework.data.redis.serializer.RedisSerializer
+import java.time.Duration
+
 
 @EnableCaching
 @Configuration
@@ -91,5 +100,42 @@ class CacheConfiguration {
 
         return RedisCacheManager.builder(lettuceConnectionFactory).withCacheConfiguration("users", configuration)
             .build()
+    }
+
+    /**
+     * JdkSerializationRedisSerializer() : RedisSerializer.java()
+     *
+     * GenericJackson2JsonRedisSerializer : RedisSerializer.json()
+     *
+     */
+    @Bean
+    fun pageCacheManager(lettuceConnectionFactory: LettuceConnectionFactory): CacheManager {
+
+        /* FOR CLOSED DATA CLASS = GenericJackson2JsonRedisSerializer(om) | Breaks Java PageImpl
+        val om = ObjectMapper()
+            .registerModule(KotlinModule())
+            .registerModule(JavaTimeModule())
+            .activateDefaultTyping(
+                BasicPolymorphicTypeValidator.builder()
+                .allowIfBaseType(Any::class.java)
+                .build(), ObjectMapper.DefaultTyping.EVERYTHING)
+         */
+
+        val configuration = RedisCacheConfiguration
+            .defaultCacheConfig()
+            .entryTtl(Duration.ofMinutes(1))
+            .disableCachingNullValues()
+            .serializeValuesWith(
+                RedisSerializationContext.SerializationPair.fromSerializer(RedisSerializer.java())
+            )
+
+        return RedisCacheManager
+            .builder(lettuceConnectionFactory).withCacheConfiguration("cities", configuration)
+            .build()
+    }
+
+    @Bean
+    fun citiesPageKeyGenerator() : KeyGenerator {
+        return CitiesPageKeyGenerator()
     }
 }

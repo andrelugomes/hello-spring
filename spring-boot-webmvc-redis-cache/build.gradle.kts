@@ -24,6 +24,8 @@ dependencies {
 
 	implementation("org.springframework.boot:spring-boot-starter-cache")
 	implementation("org.springframework.boot:spring-boot-starter-data-redis")
+	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+	implementation("com.h2database:h2")
 	implementation("com.alibaba:fastjson:1.2.75")
 	//implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.1.0")
 
