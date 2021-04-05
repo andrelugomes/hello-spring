@@ -3,10 +3,7 @@ package com.example.spring.rest.docs
 import org.hamcrest.CoreMatchers.`is`
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.restdocs.hypermedia.HypermediaDocumentation.linkWithRel
-import org.springframework.restdocs.hypermedia.HypermediaDocumentation.links
 import org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document
-import org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders
 import org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.get
 import org.springframework.restdocs.operation.preprocess.Preprocessors.*
 import org.springframework.restdocs.payload.JsonFieldType
@@ -20,7 +17,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers.print
 
 @SpringBootTest
-class UserControllerTest: MockMvcDocs() {
+class UserControllerTest: RestDocumentation() {
 
     @Test
     fun `Should get a user by ID`() {
@@ -30,7 +27,7 @@ class UserControllerTest: MockMvcDocs() {
             .andExpect(jsonPath("id", `is`(123)))
             .andExpect(jsonPath("name", `is`("Full Name")))
             .andDo(print())
-            .andDo(document("Users/{class-name}/{method-name}",
+            .andDo(document("users/{class-name}/{method-name}",
                 preprocessRequest(prettyPrint()),
                 preprocessResponse(prettyPrint()),
                 pathParameters(

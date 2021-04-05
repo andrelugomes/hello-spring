@@ -8,7 +8,7 @@ plugins {
 	kotlin("plugin.spring") version "1.4.31"
 }
 
-group = "com.example.rest-docs"
+group = "com.example.rest-documentations"
 version = "0.0.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_11
 
@@ -25,9 +25,22 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 
-	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	//Swagger
+	//implementation("io.springfox:springfox-swagger2:2.9.2")
+	//implementation("io.springfox:springfox-bean-validators:2.9.2")
+	implementation("io.springfox:springfox-swagger-ui:2.9.2")
+	implementation("io.springfox:springfox-boot-starter:3.0.0")
+
+	//Springdocs - Overrides Swagger
+	implementation("org.springdoc:springdoc-openapi-ui:1.5.6")
+	implementation("org.springdoc:springdoc-openapi-kotlin:1.5.6")
+
+
+	//rest docs
 	testImplementation("org.springframework.restdocs:spring-restdocs-mockmvc")
 	asciidoctor("org.springframework.restdocs:spring-restdocs-asciidoctor")
+
+	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
 tasks.withType<KotlinCompile> {
