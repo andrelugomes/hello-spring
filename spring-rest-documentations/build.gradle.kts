@@ -40,6 +40,8 @@ dependencies {
 	testImplementation("org.springframework.restdocs:spring-restdocs-mockmvc")
 	asciidoctor("org.springframework.restdocs:spring-restdocs-asciidoctor")
 
+	testImplementation("com.atlassian.oai:swagger-request-validator-core:2.15.1")
+	testImplementation("com.atlassian.oai:swagger-request-validator-mockmvc:2.15.1")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 

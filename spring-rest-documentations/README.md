@@ -32,12 +32,16 @@ java -jar build/libs/...
 + https://spec.openapis.org/oas/v3.1.0  
 + https://swagger.io/specification/
 
+Test Assert
++ https://bitbucket.org/atlassian/swagger-request-validator/src/master/
+
 ## springdoc-openapi
 
 + https://springdoc.org/
 + https://github.com/springdoc/springdoc-openapi
 
 [http://localhost:8080/docs-ui.html]()
+
 
 
 
