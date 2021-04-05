@@ -39,6 +39,7 @@ Test Assert
 
 + https://springdoc.org/
 + https://github.com/springdoc/springdoc-openapi
++ https://springdoc.org/migrating-from-springfox.html
 
 [http://localhost:8080/docs-ui.html]()
 
