@@ -1,7 +1,7 @@
 #!/bin/bash
 
-client_id=spring-api-1
-client_secret=MooR72AdMqzIUFpkrzmhdlfkf7gXXKIO
+client_id=api-client-1
+client_secret=FG4BnmvD69BwD1fbt8Gb9yuI8VN0PsUM
 
 ACCESS_TOKEN=$(curl -X POST "http://localhost:8080/realms/api-authorization/protocol/openid-connect/token" \
              --header "Content-Type: application/x-www-form-urlencoded" \

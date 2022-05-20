@@ -20,3 +20,8 @@ Validade a token by hand, without framework
 ```shell
 ./script.sh
 ```
+
+## keycloak-spring-boot-starter
+
+https://www.keycloak.org/docs/latest/securing_apps/#_spring_boot_adapter
+
