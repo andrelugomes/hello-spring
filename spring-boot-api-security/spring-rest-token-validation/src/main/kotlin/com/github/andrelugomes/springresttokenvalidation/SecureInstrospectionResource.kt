@@ -31,13 +31,13 @@ class SecureInstrospectionResource {
 
         val request =
             HttpRequest.newBuilder(authServer)
-                .setHeader("Authorization", "Basic ${Base64.getEncoder().encodeToString("spring-rest-token-validation:PbQBqQTberUn1s7XamAjGut7PivLp0xI".toByteArray())}")
+                .setHeader("Authorization", "Basic ${Base64.getEncoder().encodeToString("spring-rest-token-validation:1clyzVUEAkjwMIxBz6EcseAClRl1pPjd".toByteArray())}")
                 .setHeader("Content-Type", "application/x-www-form-urlencoded")
                 .POST(
                     ofFormData(
                         mapOf(
                             "token" to URLEncoder.encode(
-                                headers["Autorization"]?.first(),
+                                headers["Authorization"]?.first(),
                                 StandardCharsets.UTF_8
                             )
                         )

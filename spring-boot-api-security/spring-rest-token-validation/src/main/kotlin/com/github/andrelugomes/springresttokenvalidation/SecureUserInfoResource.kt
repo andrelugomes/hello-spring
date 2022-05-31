@@ -35,7 +35,7 @@ class SecureUserInfoResource {
                     ofFormData(
                         mapOf(
                             "access_token" to URLEncoder.encode(
-                                headers["Autorization"]?.first(),
+                                headers["Authorization"]?.first(),
                                 StandardCharsets.UTF_8
                             )
                         )

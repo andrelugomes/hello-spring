@@ -8,7 +8,7 @@
 docker run -p 8080:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak:18.0.0 start-dev
 ```
 
-Setup Realm and Client Credentials
+Create a new realm importing [realm-api-authorization.json](realm-api-authorization.json)
 
 ## spring-rest-token-validation
 
@@ -20,6 +20,14 @@ Validade a token by hand, without framework
 ```shell
 ./script.sh
 ```
+
+## spring-boot-starter-oauth2-resource-server
+
+Using Spring OAuth2 Resource Server a Client Credentials Flow
+
+- Opaque Token -> Instospection (OpaqueTokenAuthenticationProvider.class)
+- JWL -> (JwtAuthenticationProvider.class)
+- Resolve Autentication strategy for diferents endpoits
 
 ## keycloak-spring-boot-starter
 

@@ -1,0 +1,18 @@
+server:
+  port: 8083
+
+logging:
+  level:
+    root: DEBUG
+    org.springframework.boot: DEBUG
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/api-authorization
+        opaque-token:
+          introspection-uri: http://localhost:8080/realms/api-authorization/protocol/openid-connect/token/introspect
+          client-id: spring-security-oauth2
+          client-secret: IFTwxcHCw1MRcp6CcmZuVl1yuF3q7XGu
