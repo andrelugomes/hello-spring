@@ -1,7 +1,7 @@
 #!/bin/bash
 
 client_id=api-client-1
-client_secret=FG4BnmvD69BwD1fbt8Gb9yuI8VN0PsUM
+client_secret=9ttTZjYfMm4LKc6GucKShGFdGkqNf8a0
 
 ACCESS_TOKEN=$(curl -X POST "http://localhost:8080/realms/api-authorization/protocol/openid-connect/token" \
              --header "Content-Type: application/x-www-form-urlencoded" \
