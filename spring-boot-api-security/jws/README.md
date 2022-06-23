@@ -15,6 +15,7 @@ echo "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzM4NCIsImtpZCI6IjAwMDEiLCJpc3MiOiJCYXNoIEpXVC
 
 ## Sign using RSA
 
++ https://github.com/cisco/node-jose
 + https://github.com/cisco/node-jose/blob/master/README.md#keys-used-for-signing-and-verifying
 
 ```shell

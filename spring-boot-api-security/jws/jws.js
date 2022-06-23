@@ -15,12 +15,14 @@ keystore.add(pem, "PEM").
         //keystore = result;
 
         jose.JWS.createSign({ format: 'compact' }, result).
-                update(data).
-                final().
-                then(function(result) {
-                  console.log(result);
+            update(data).
+            final().
+            then(function(result) {
+              console.log(result);
+            }).
+            catch(function(error) {
+                console.log(error);
             });
-
     });
 
 
