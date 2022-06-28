@@ -1,4 +1,4 @@
-package com.github.andrelugomes.springbootstarterkeycloak
+package com.github.andrelugomes.springbootmtlsca
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

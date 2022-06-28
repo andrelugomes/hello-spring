@@ -21,19 +21,6 @@ openssl pkcs12 -export -out server-keystore.p12 -name "server" -inkey server.key
 Put the CA.crt into TrustStore
 ```shell
 keytool -import -trustcacerts -noprompt -alias ca -ext san=dns:localhost,ip:127.0.0.1 -file CA.crt -keystore server-truststore.jks
-
-keytool -importkeystore -srckeystore server-truststore.jks -srcstoretype JKS -deststoretype PKCS12 -destkeystore truststore.p12
-
-OR
-keytool -importcert -trustcacerts -noprompt -alias ca -storetype pkcs12 -keystore server-truststore.p12  -file CA.crt
-
-OR
-#doesn't works
-#openssl pkcs12 -export -out server-truststore.p12 -name "server-truststore" -inkey CA.key -in CA.crt
-
-cat CA.key > CA-key.pem
-openssl x509 -in CA.crt -out CA.pem -outform PEM
-openssl pkcs12 -export -out server-truststore.p12 -inkey CA-key.pem -in CA.pem
 ```
 
 Create Client Certificate request and Certificate
@@ -44,8 +31,29 @@ openssl x509 -req -in client.csr -CA CA.crt -CAkey CA.key -CAcreateserial -out c
 ```
 
 ```shell
-curl -vk https://localhost:8084/api/secure
+curl -vk https://localhost:8085/api/secure
 
 curl -vk --cert src/main/resources/client.crt --key src/main/resources/client.key  https://localhost:8085/api/secure
+```
+
+# Extra
+## .p12
+
+```shell
+#or to .p12
+keytool -importkeystore -srckeystore server-truststore.jks -srcstoretype JKS -deststoretype PKCS12 -destkeystore server-truststore.p12
+
+#add new CA
+keytool -importcert -trustcacerts -noprompt -alias new-ca -storetype pkcs12 -file CA.crt -keystore server-truststore.p12  
+
+
+#doesn't works yet
+OR
+openssl pkcs12 -export -out server-truststore.p12 -name "server-truststore" -inkey CA.key -in CA.crt
+
+OR
+cat CA.key > CA-key.pem
+openssl x509 -in CA.crt -out CA.pem -outform PEM
+openssl pkcs12 -export -out server-truststore.p12 -inkey CA-key.pem -in CA.pem
 ```
  
