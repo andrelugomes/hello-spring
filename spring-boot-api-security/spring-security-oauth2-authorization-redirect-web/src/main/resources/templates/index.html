@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <title>Spring Security OAuth2 Authorization Redirect</title>
+</head>
+<body>
+<h2>Loggued User : <span th:text="${userName}"/></h2>
+<h2>Client Name :  <span th:text="${clientName}"/></h2>
+<div>
+    <h2> Scopes :</h2>
+    <ul>
+        <li th:each="scope : ${scopes}"><span th:text="${scope}"></span>
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>

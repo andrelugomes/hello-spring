@@ -1,0 +1,27 @@
+server:
+  port: 8085
+
+logging:
+  level:
+    root: DEBUG
+    org.springframework.boot: DEBUG
+    org.thymeleaf.: WARN
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          app-authorization-redirect:
+            client-id: spring-security-oauth2-authorization-redirect-web
+            client-secret: zBgkFTOIXIAAG83tFifRfulIeMzq8GHv
+            clientName: AppTestRedirect
+            authorization-grant-type: authorization_code
+            redirect-uri: http://localhost:8085/login/oauth2/code/app-authorization-redirect
+            scope:
+              - openid
+              - profile
+              - email
+        provider:
+          app-authorization-redirect:
+            issuer-uri: http://localhost:8080/realms/api-authorization
