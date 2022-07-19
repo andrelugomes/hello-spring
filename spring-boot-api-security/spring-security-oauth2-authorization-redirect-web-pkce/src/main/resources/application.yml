@@ -1,0 +1,14 @@
+server:
+  port: 8086
+
+logging:
+  level:
+    root: DEBUG
+    org.springframework.boot: DEBUG
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/api-authorization

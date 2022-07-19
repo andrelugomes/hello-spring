@@ -13,6 +13,11 @@
 + https://github.com/ravthiru/keycloak-recepies/blob/master/springboot-keycloak/build.gradle
 + https://www.baeldung.com/spring-security-oauth-resource-server
 
+## Access
+
+[Access](http://localhost:8085)
+
+user1 / user1
 
 ## Flow
 

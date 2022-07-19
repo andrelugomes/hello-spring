@@ -34,3 +34,14 @@ Using Spring OAuth2 Resource Server a Client Credentials Flow
 
 https://www.keycloak.org/docs/latest/securing_apps/#_spring_boot_adapter
 
+## spring-security-oauth2-authorization-redirect-web
+
+Thymeleaf frontend using OAuth Authorization_code redirect
+
+[READ](./spring-security-oauth2-authorization-redirect-web/README.md)
+
+## spring-security-oauth2-authorization-redirect-web-pkce
+
+Angular frontend using OAuth Authorization_code redirect with PKCE
+
+[READ](./spring-security-oauth2-authorization-redirect-web-pkce/README.md)

@@ -15,7 +15,7 @@ class IndexController {
     @Autowired
     private val authorizedClientService: OAuth2AuthorizedClientService? = null
 
-    @GetMapping("/index")
+    @GetMapping("/")
     fun getIndex(
         model: Model,
         @AuthenticationPrincipal principal: OidcUser,
@@ -25,7 +25,7 @@ class IndexController {
 
         model.addAttribute("principal_name", principal.name)
         model.addAttribute("principal_preferred_username", principal.attributes["preferred_username"])
-        model.addAttribute("id_token", principal.idToken)
+        model.addAttribute("id_token", principal.idToken.tokenValue)
 
         model.addAttribute("user_name", authentication.principal.getAttribute("preferred_username"))
 
