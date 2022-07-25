@@ -34,13 +34,15 @@ Request URL: http://localhost:8085/login/oauth2/code/app-authorization-redirect?
 
 POST http://localhost:8080/realms/api-authorization/protocol/openid-connect/token
 ```text
-("application/x-www-form-urlencoded;charset=UTF-8") 
+"application/x-www-form-urlencoded;charset=UTF-8" 
 
-grant_type=[authorization_code], 
-code=[bfa6c632-d7ba-472e-b2ef-e40142f82ea9.3322021d-c22c-49f6-bdf6-df11ac818b34.865fc0ee-e26d-4516-a152-4a7a76484712], 
-redirect_uri=[http://localhost:8085/login/oauth2/code/app-authorization-redirect]
+grant_type=authorization_code, 
+code=bfa6c632-d7ba-472e-b2ef-e40142f82ea9.3322021d-c22c-49f6-bdf6-df11ac818b34.865fc0ee-e26d-4516-a152-4a7a76484712, 
+redirect_uri=http://localhost:8085/login/oauth2/code/app-authorization-redirect
 ```
 
 GET : http://localhost:8085/index -> 200 
 
+# Wireshark inspecting TOKEN endpoint
 
+![wireshark.png](./wireshark.png)

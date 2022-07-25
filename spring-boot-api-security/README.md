@@ -1,4 +1,4 @@
-# Spring API Security
+# Spring Boot API Security
 
 + OAuth 2.0 uisng Keycloak
 
@@ -22,7 +22,7 @@ Validade a token by hand, without framework
 ./script.sh
 ```
 
-## spring-boot-starter-oauth2-resource-server
+## spring-boot-starter-oauth2-client-credentials
 
 Using Spring OAuth2 Resource Server a Client Credentials Flow
 
@@ -30,7 +30,9 @@ Using Spring OAuth2 Resource Server a Client Credentials Flow
 - JWL -> (JwtAuthenticationProvider.class)
 - Resolve Autentication strategy for diferents endpoits
 
-## keycloak-spring-boot-starter
+## spring-security-oauth2-password
+
++ keycloak-spring-boot-starter
 
 https://www.keycloak.org/docs/latest/securing_apps/#_spring_boot_adapter
 

@@ -1,24 +1,20 @@
 # Spring Security OAuth2 Authorization Redirect WEB PKCE
 
 + https://www.analyticsvidhya.com/blog/2022/06/spring-security-oauth2-with-keycloak-pkce-authorization-code-flow/
++ https://www.youtube.com/watch?v=NvNnE67wMnQ
++ https://ordina-jworks.github.io/security/2019/08/22/Securing-Web-Applications-With-Keycloak.html
 
 
 ## Frontend SPA
 
-```shell
-cd src/front
+[Angular Frontend](./src/front/README.md)
 
-npm install
+### Access
 
-npm start
-```
-
-## Access
-
-[Access](http://localhost:4200)
+[http://localhost:4200 ](http://localhost:4200)
 
 
-## Flow
+### Flow
 
 GET -> http://localhost:8080/realms/api-authorization/protocol/openid-connect/auth?response_type=code&client_id=angular-authorization-redirect-web-pkce&state=M3IyTzl5UXoyT0NIVEs2UWctaVViOHpmcmN2b1VkV1BkRkFRRTR5QVFZMmZs&redirect_uri=http%3A%2F%2Flocalhost%3A4200&scope=openid%20profile%20email%20offline_access&code_challenge=v7ZiSJDQ4XtwbsObTMIAH515a9HtWfLZ46mrrIj2lkg&code_challenge_method=S256&nonce=M3IyTzl5UXoyT0NIVEs2UWctaVViOHpmcmN2b1VkV1BkRkFRRTR5QVFZMmZs
 

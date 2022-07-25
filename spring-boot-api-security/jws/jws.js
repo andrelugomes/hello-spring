@@ -1,7 +1,6 @@
 const jose = require('node-jose');
 const fs = require('fs');
 
-
 var data = "{\"key\":\"value\"}"
 
 var keystore = jose.JWK.createKeyStore();
