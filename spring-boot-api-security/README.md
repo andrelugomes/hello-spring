@@ -11,18 +11,27 @@ docker run --name keycloak -p 8080:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMI
 Create a new realm importing [realm-api-authorization.json](realm-api-authorization.json)
 ![img.png](img.png)
 
-## spring-rest-token-validation
+## 1 - resource-server-token-validation
 
 Validade a token by hand, without framework
 
-+ Userinfo endpoint
-+ Token Introspection endpoint
+### Token Introspection endpoint
+```shell
+./token-introspection.sh
+```
+### Userinfo endpoint
 
 ```shell
-./script.sh
+./userinfo.sh
 ```
 
-## spring-boot-starter-oauth2-client-credentials
+## 2 - spring-security-oauth2-password
+
++ keycloak-spring-boot-starter
+
+https://www.keycloak.org/docs/latest/securing_apps/#_spring_boot_adapter
+
+## 3 - spring-security-oauth2-client-credentials
 
 Using Spring OAuth2 Resource Server a Client Credentials Flow
 
@@ -30,19 +39,14 @@ Using Spring OAuth2 Resource Server a Client Credentials Flow
 - JWL -> (JwtAuthenticationProvider.class)
 - Resolve Autentication strategy for diferents endpoits
 
-## spring-security-oauth2-password
 
-+ keycloak-spring-boot-starter
-
-https://www.keycloak.org/docs/latest/securing_apps/#_spring_boot_adapter
-
-## spring-security-oauth2-authorization-redirect-web
+## 4 - spring-security-oauth2-authorization-redirect-web
 
 Thymeleaf frontend using OAuth Authorization_code redirect
 
 [READ](./spring-security-oauth2-authorization-redirect-web/README.md)
 
-## spring-security-oauth2-authorization-redirect-web-pkce
+## 5 - spring-security-oauth2-authorization-redirect-web-pkce
 
 Angular frontend using OAuth Authorization_code redirect with PKCE
 

@@ -15,17 +15,6 @@ curl -X POST "http://localhost:8080/realms/api-authorization/protocol/openid-con
       -H "Content-Type: application/x-www-form-urlencoded" \
       -d "access_token=${ACCESS_TOKEN}" | jq .
 
-echo "Token Introspection"
-
-curl -X POST "http://localhost:8080/realms/api-authorization/protocol/openid-connect/token/introspect" \
-      -u "${client_id}:${client_secret}" \
-      -H "Content-Type: application/x-www-form-urlencoded" \
-      -d "token=${ACCESS_TOKEN}" | jq .
-
 echo "Call Spring API - Userinfo"
 
 curl -v -H "Authorization: ${ACCESS_TOKEN}" localhost:8081/secure-user
-
-echo "Call Spring API - Tokeninstropection"
-
-curl -v -H "Authorization: ${ACCESS_TOKEN}" localhost:8081/secure-introspection
