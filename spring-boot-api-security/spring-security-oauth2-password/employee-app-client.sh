@@ -3,8 +3,8 @@
 echo "Username: $1";
 echo "password: $2";
 
-client_id=spring-security-oauth2-password
-client_secret=ASqxFtGPQUpSDLmoJIW6jLTK7CCA0j4a
+client_id=employee-app-client
+client_secret=jVjv6kWjkday5scdlHbOychbhKtVMGn4
 user=$1
 password=$2
 
@@ -17,11 +17,14 @@ ACCESS_TOKEN=$(curl -X POST "http://localhost:8080/realms/api-authorization/prot
              --data-urlencode "grant_type=password" | jq -j .access_token)
 
 echo $ACCESS_TOKEN
-
+echo -e "\n"
+echo -e "Calling /api/user\n"
 curl -X GET http://localhost:8082/api/user --header "Authorization: bearer ${ACCESS_TOKEN}"
 echo -e "\n"
+echo -e "Calling /api/admin\n"
 curl -X GET http://localhost:8082/api/admin --header "Authorization: bearer ${ACCESS_TOKEN}"
 echo -e "\n"
+echo -e "Calling /api/all-users\n"
 curl -X GET http://localhost:8082/api/all-users --header "Authorization: bearer ${ACCESS_TOKEN}"
 
 

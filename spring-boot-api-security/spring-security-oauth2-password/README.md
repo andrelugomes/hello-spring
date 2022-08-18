@@ -13,6 +13,9 @@ References:
 
 ## Configuration
 
+Associate Realm Roles to Client Roles
+![img.png](img.png)
+
 Annotaion based
 
 ```kotlin
@@ -45,13 +48,13 @@ curl localhost:8082/api/public
 
 Role Based 
 ```shell
-/keycloak-spring-boot-starter/employee.sh employee1 employee1
+./employee-app-client.sh employee1 employee1
 ```
 ```shell
-/keycloak-spring-boot-starter/employee.sh employee2 employee2
+./employee-app-client.sh employee2 employee2
 ```
 ```shell
-/keycloak-spring-boot-starter/employee.sh employee3 employee3
+./employee-app-client.sh employee3 employee3
 ```
 
 ## Needs authentication
