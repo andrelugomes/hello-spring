@@ -26,5 +26,3 @@ curl -X GET http://localhost:8082/api/admin --header "Authorization: bearer ${AC
 echo -e "\n"
 echo -e "Calling /api/all-users\n"
 curl -X GET http://localhost:8082/api/all-users --header "Authorization: bearer ${ACCESS_TOKEN}"
-
-

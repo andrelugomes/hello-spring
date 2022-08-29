@@ -4,10 +4,17 @@
 + https://www.youtube.com/watch?v=NvNnE67wMnQ
 + https://ordina-jworks.github.io/security/2019/08/22/Securing-Web-Applications-With-Keycloak.html
 
+## Banckend
+![img.png](img.png)
+
+PKCE enabled on Keycloak
+
 
 ## Frontend SPA
 
 [Angular Frontend](./src/front/README.md)
+
+`src/front/src/app/auth.config.ts` contains all PKCE setup
 
 ### Access
 
